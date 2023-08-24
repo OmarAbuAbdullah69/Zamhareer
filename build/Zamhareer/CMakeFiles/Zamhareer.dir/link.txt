@@ -1,0 +1,2 @@
+/usr/bin/ar qc libZamhareer.a CMakeFiles/Zamhareer.dir/src/Engine.cpp.o
+/usr/bin/ranlib libZamhareer.a
