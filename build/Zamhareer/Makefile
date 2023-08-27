@@ -199,6 +199,30 @@ src/Engine.cpp.s:
 	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Engine.cpp.s
 .PHONY : src/Engine.cpp.s
 
+src/window_impl/glfw_Window.o: src/window_impl/glfw_Window.cpp.o
+.PHONY : src/window_impl/glfw_Window.o
+
+# target to build an object file
+src/window_impl/glfw_Window.cpp.o:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o
+.PHONY : src/window_impl/glfw_Window.cpp.o
+
+src/window_impl/glfw_Window.i: src/window_impl/glfw_Window.cpp.i
+.PHONY : src/window_impl/glfw_Window.i
+
+# target to preprocess a source file
+src/window_impl/glfw_Window.cpp.i:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.i
+.PHONY : src/window_impl/glfw_Window.cpp.i
+
+src/window_impl/glfw_Window.s: src/window_impl/glfw_Window.cpp.s
+.PHONY : src/window_impl/glfw_Window.s
+
+# target to generate assembly for a file
+src/window_impl/glfw_Window.cpp.s:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.s
+.PHONY : src/window_impl/glfw_Window.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -215,6 +239,9 @@ help:
 	@echo "... src/Engine.o"
 	@echo "... src/Engine.i"
 	@echo "... src/Engine.s"
+	@echo "... src/window_impl/glfw_Window.o"
+	@echo "... src/window_impl/glfw_Window.i"
+	@echo "... src/window_impl/glfw_Window.s"
 .PHONY : help
 
 

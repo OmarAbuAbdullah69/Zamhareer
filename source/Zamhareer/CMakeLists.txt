@@ -11,7 +11,16 @@ file(GLOB_RECURSE Source_files ${PROJECT_SOURCE_DIR}/src/*.cpp)
 
 if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
     add_library(${PROJECT_NAME} ${Source_files} ${Header_filse})
-    target_compile_definitions(${PROJECT_NAME} PRIVATE "Og" "Wall")
+	# Adding compiler flags to the my_app target
+	target_compile_options(${PROJECT_NAME} PRIVATE
+    	-Wall              # Enable all warnings
+    	-Wextra            # Enable extra warnings
+    	-O2                # Optimization level 2
+	)
+	# Adding a macro (preprocessor definition) to the my_app target
+	target_compile_definitions(${PROJECT_NAME} PRIVATE
+    	DEBUG_MODE    # This macro will be defined for my_app
+	)
 elseif(${CMAKE_BUILD_TYPE} STREQUAL "Release")
     add_library(${PROJECT_NAME} ${Source_files} ${Header_filse})
 endif()

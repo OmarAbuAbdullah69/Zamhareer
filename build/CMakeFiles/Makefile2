@@ -190,7 +190,7 @@ CMakeFiles/Game.dir/all: Zamhareer/vendor/glad/CMakeFiles/glad.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Game.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/omar/Projects/Zamhareer/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/omar/Projects/Zamhareer/build/CMakeFiles 31
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Game.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/omar/Projects/Zamhareer/build/CMakeFiles 0
 .PHONY : CMakeFiles/Game.dir/rule
@@ -212,12 +212,12 @@ Zamhareer/CMakeFiles/Zamhareer.dir/all: Zamhareer/vendor/glfw/src/CMakeFiles/glf
 Zamhareer/CMakeFiles/Zamhareer.dir/all: Zamhareer/vendor/glad/CMakeFiles/glad.dir/all
 	$(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/depend
 	$(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=3,4 "Built target Zamhareer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=3,4,5 "Built target Zamhareer"
 .PHONY : Zamhareer/CMakeFiles/Zamhareer.dir/all
 
 # Build rule for subdir invocation for target.
 Zamhareer/CMakeFiles/Zamhareer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/omar/Projects/Zamhareer/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/omar/Projects/Zamhareer/build/CMakeFiles 29
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Zamhareer/CMakeFiles/Zamhareer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/omar/Projects/Zamhareer/build/CMakeFiles 0
 .PHONY : Zamhareer/CMakeFiles/Zamhareer.dir/rule
@@ -264,7 +264,7 @@ Zamhareer/vendor/glfw/CMakeFiles/uninstall.dir/clean:
 Zamhareer/vendor/glfw/src/CMakeFiles/glfw.dir/all:
 	$(MAKE) $(MAKESILENT) -f Zamhareer/vendor/glfw/src/CMakeFiles/glfw.dir/build.make Zamhareer/vendor/glfw/src/CMakeFiles/glfw.dir/depend
 	$(MAKE) $(MAKESILENT) -f Zamhareer/vendor/glfw/src/CMakeFiles/glfw.dir/build.make Zamhareer/vendor/glfw/src/CMakeFiles/glfw.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30 "Built target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31 "Built target glfw"
 .PHONY : Zamhareer/vendor/glfw/src/CMakeFiles/glfw.dir/all
 
 # Build rule for subdir invocation for target.
@@ -290,7 +290,7 @@ Zamhareer/vendor/glfw/src/CMakeFiles/glfw.dir/clean:
 Zamhareer/vendor/glfw/src/CMakeFiles/update_mappings.dir/all:
 	$(MAKE) $(MAKESILENT) -f Zamhareer/vendor/glfw/src/CMakeFiles/update_mappings.dir/build.make Zamhareer/vendor/glfw/src/CMakeFiles/update_mappings.dir/depend
 	$(MAKE) $(MAKESILENT) -f Zamhareer/vendor/glfw/src/CMakeFiles/update_mappings.dir/build.make Zamhareer/vendor/glfw/src/CMakeFiles/update_mappings.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=31 "Built target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=32 "Built target update_mappings"
 .PHONY : Zamhareer/vendor/glfw/src/CMakeFiles/update_mappings.dir/all
 
 # Build rule for subdir invocation for target.
@@ -316,7 +316,7 @@ Zamhareer/vendor/glfw/src/CMakeFiles/update_mappings.dir/clean:
 Zamhareer/vendor/glad/CMakeFiles/glad.dir/all:
 	$(MAKE) $(MAKESILENT) -f Zamhareer/vendor/glad/CMakeFiles/glad.dir/build.make Zamhareer/vendor/glad/CMakeFiles/glad.dir/depend
 	$(MAKE) $(MAKESILENT) -f Zamhareer/vendor/glad/CMakeFiles/glad.dir/build.make Zamhareer/vendor/glad/CMakeFiles/glad.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=5,6 "Built target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=6,7 "Built target glad"
 .PHONY : Zamhareer/vendor/glad/CMakeFiles/glad.dir/all
 
 # Build rule for subdir invocation for target.
