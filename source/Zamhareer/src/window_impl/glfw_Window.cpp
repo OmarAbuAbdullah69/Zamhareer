@@ -2,13 +2,14 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
+#include <functional>
+
 
 #include"ZM/Engine.h"
 #include "ZM/Event/MouseEvent.h"
 
 
 namespace ZM {
-	Engine *engine = Engine::GetInstance();
 
 	Window::Window(const char *name, glm::vec2 size)
 		:ViewPort(size), m_Name(name)
@@ -17,9 +18,6 @@ namespace ZM {
 	{
 		assert(glfwInit());
 		m_Handle = glfwCreateWindow(m_Size.x, m_Size.y, m_Name.c_str(), NULL, NULL);
-
-		//Put the Engine pointer into the glfw datastruct
-		glfwSetWindowUserPointer(m_Handle, engine);
 
 		/* Make the window's context current */
     	glfwMakeContextCurrent(m_Handle);
@@ -40,12 +38,26 @@ namespace ZM {
 	}
 	void Window::SetUpEventCallback()
 	{
+
+		//Mouse Move
 		glfwSetCursorPosCallback(m_Handle, [](GLFWwindow *window, double xpos, double ypos)
 				{
-					Engine *e = (Engine *)glfwGetWindowUserPointer(window);
-					MouseMoveEvent ev((float)xpos, (float)ypos); // there is an error here for some reasone
-					e->OnEvent(ev);
+					assert(window);
+					MouseMoveEvent ev(xpos, ypos); 
+					Engine::GetInstance()->OnEvent(ev);
 				});
+		//Mouse Scroll
+		glfwSetScrollCallback(m_Handle, [](GLFWwindow *window, double xoffset, double yoffset)
+		{
+			assert(window);
+			MouseScrollEvent ev(xoffset, yoffset);
+			Engine::GetInstance()->OnEvent(ev);
+		});
+		//Mouse Button
+		glfwSetMouseButtonCallback(m_Handle, [](GLFWwindow* window, int button, int action, int mods)
+				{
+					assert(window)
+				})
 	}
 	void Window::Terminate()
 	{

@@ -1,5 +1,6 @@
 #pragma once
 #include "ViewPort.h"
+#include <iostream>
 
 namespace ZM {
 	class Engine

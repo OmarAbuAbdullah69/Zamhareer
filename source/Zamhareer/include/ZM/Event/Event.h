@@ -8,11 +8,10 @@ namespace ZM {
 		//Input
 		KeyRelease, KeyPress,
 		//Mouse
-		MouseMove, MouseButton, MouseScroll,
+		MouseMove, MouseButtonPress, MouseButtonRelease, MouseScroll,
 		//Applecation
 		AppStart, AppClose, AppTick
 	};
-
 
 	class Event
 	{

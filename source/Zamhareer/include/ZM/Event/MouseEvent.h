@@ -28,38 +28,46 @@ namespace ZM {
 	{
 		public:
 			MouseScrollEvent(float x, float y)
-				:m_Amount(x, y){}
+				:m_Offset(x, y){}
 			virtual EventType GetEventType(){return GetStaticType();}
 			static EventType GetStaticType(){return EventType::MouseScroll;}
 			
 			#ifdef DEBUG_MODE
 			virtual void ToString()
 			{
-				std::cout <<"MouseScroll = ("<<m_Amount.x <<", "<< m_Amount.y<<" )"<< std::endl;
+				std::cout <<"MouseScroll = ("<<m_Offset.x <<", "<< m_Offset.y<<" )"<< std::endl;
 			}
 			#endif // DEBUG
 			
-			inline glm::vec2 GetAmount() const {return m_Amount;}
+			inline glm::vec2 GetOffset() const {return m_Offset;}
 		private:
-			glm::vec2 m_Amount;
+			glm::vec2 m_Offset;
 	};
 	class MouseButtonEvent :public Event
 	{
 		public:
+			int GetButton() const {return m_Button;}
+		protected:
 			MouseButtonEvent(int button)
 				:m_Button(button){}
 
+		private:
+			int m_Button;	
+	};
+
+	class MouseButtonPressEvent :public MouseButtonEvent
+	{
+		public:
+			MouseButtonPressEvent(int button)
+				:MouseButtonEvent(button){}
 			virtual EventType GetEventType(){return GetStaticType();}
-			static EventType GetStaticType(){return EventType::MouseButton;}
+			static EventType GetStaticType(){return EventType::MouseScroll;}
 			
 			#ifdef DEBUG_MODE
 			virtual void ToString()
 			{
-				std::cout <<"MouseButton = ("<<m_Button<<" )"<< std::endl;
+				std::cout <<"MouseButtonRelease keycode= " << GetButton()<< std::endl;
 			}
-			#endif // DEBUG
-			
-		private:
-			int m_Button;	
+			#endl
 	};
 }

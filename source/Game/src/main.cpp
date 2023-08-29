@@ -6,6 +6,7 @@
 
 int main()
 {
+	glm::vec2 vec(4.0, 234.2);
 	ZM::Window win("test window", glm::vec2(640, 480));
 	ZM::Engine en;
 	en.SetViewPort(&win);
