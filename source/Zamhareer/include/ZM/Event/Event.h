@@ -4,13 +4,13 @@ namespace ZM {
 	enum EventType {
 		None = 0,
 		//Window
-		WindowResize, WindwoMove,
+		WindowResize, WindwoMove, WindowClose,
 		//Input
-		KeyRelease, KeyPress,
+		 KeyPress, KeyRelease, CharacterEvent,
 		//Mouse
 		MouseMove, MouseButtonPress, MouseButtonRelease, MouseScroll,
 		//Applecation
-		AppStart, AppClose, AppTick
+		AppTick,
 	};
 
 	class Event

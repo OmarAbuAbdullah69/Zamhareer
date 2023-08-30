@@ -488,7 +488,9 @@ Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o: /home/omar
   /usr/include/c++/11/bits/stl_tempbuf.h \
   /usr/include/c++/11/bits/uniform_int_dist.h \
   /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Engine.h \
-  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/MouseEvent.h
+  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/MouseEvent.h \
+  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/WindowEvent.h \
+  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/KeyBoardEvent.h
 
 
 /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/MouseEvent.h:
@@ -576,6 +578,8 @@ Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o: /home/omar
 /usr/include/c++/11/bits/postypes.h:
 
 /usr/include/c++/11/bits/stringfwd.h:
+
+/home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/KeyBoardEvent.h:
 
 /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/ext/vector_double2.hpp:
 
@@ -864,6 +868,8 @@ Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o: /home/omar
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
 /usr/include/c++/11/string_view:
+
+/home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/WindowEvent.h:
 
 /usr/include/c++/11/bits/functional_hash.h:
 

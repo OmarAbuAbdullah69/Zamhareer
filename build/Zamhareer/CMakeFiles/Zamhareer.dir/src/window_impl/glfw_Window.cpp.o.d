@@ -219,4 +219,6 @@ Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o: \
  /usr/include/c++/11/bits/stl_tempbuf.h \
  /usr/include/c++/11/bits/uniform_int_dist.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Engine.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/MouseEvent.h
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/MouseEvent.h \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/WindowEvent.h \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/KeyBoardEvent.h

@@ -15,7 +15,7 @@ namespace ZM {
 			#ifdef DEBUG_MODE
 			virtual void ToString()
 			{
-				std::cout <<"MousePos = ("<<m_Pos.x <<", "<< m_Pos.y<<" )"<< std::endl;
+				std::cout <<"Mouse Pos = ("<<m_Pos.x <<", "<< m_Pos.y<<" )\n";
 			}
 			#endif // DEBUG
 			
@@ -35,7 +35,7 @@ namespace ZM {
 			#ifdef DEBUG_MODE
 			virtual void ToString()
 			{
-				std::cout <<"MouseScroll = ("<<m_Offset.x <<", "<< m_Offset.y<<" )"<< std::endl;
+				std::cout <<"Mouse Scroll = ("<<m_Offset.x <<", "<< m_Offset.y<<" )\n";
 			}
 			#endif // DEBUG
 			
@@ -61,13 +61,28 @@ namespace ZM {
 			MouseButtonPressEvent(int button)
 				:MouseButtonEvent(button){}
 			virtual EventType GetEventType(){return GetStaticType();}
-			static EventType GetStaticType(){return EventType::MouseScroll;}
+			static EventType GetStaticType(){return EventType::MouseButtonPress;}
 			
 			#ifdef DEBUG_MODE
 			virtual void ToString()
 			{
-				std::cout <<"MouseButtonRelease keycode= " << GetButton()<< std::endl;
+				std::cout <<"Mouse Button Press keycode= " << GetButton()<<'\n';
 			}
-			#endl
+			#endif
+	};
+	class MouseButtonReleaseEvent :public MouseButtonEvent
+	{
+		public:
+			MouseButtonReleaseEvent(int button)
+				:MouseButtonEvent(button){}
+			virtual EventType GetEventType(){return GetStaticType();}
+			static EventType GetStaticType(){return EventType::MouseButtonRelease;}
+			
+			#ifdef DEBUG_MODE
+			virtual void ToString()
+			{
+				std::cout <<"Mouse Button Release keycode= " << GetButton()<< '\n';
+			}
+			#endif
 	};
 }
