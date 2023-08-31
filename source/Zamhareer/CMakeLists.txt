@@ -10,6 +10,7 @@ file(GLOB_RECURSE Source_files ${PROJECT_SOURCE_DIR}/src/*.cpp)
 
 
 if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+	message(STATUS "building ${PROJECT_NAME} in debug mode")
     add_library(${PROJECT_NAME} ${Source_files} ${Header_filse})
 	# Adding compiler flags to the my_app target
 	target_compile_options(${PROJECT_NAME} PRIVATE
@@ -17,12 +18,17 @@ if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
     	-Wextra            # Enable extra warnings
     	-O2                # Optimization level 2
 	)
-	# Adding a macro (preprocessor definition) to the my_app target
+	# Adding a macro (preprocessor definition) to the target
 	target_compile_definitions(${PROJECT_NAME} PRIVATE
-    	DEBUG_MODE    # This macro will be defined for my_app
+    	DEBUG_MODE    # This macro will be defined for target
 	)
-elseif(${CMAKE_BUILD_TYPE} STREQUAL "Release")
-    add_library(${PROJECT_NAME} ${Source_files} ${Header_filse})
+elseif(${CMAKE_BUILD_TYPE} STREQUAL "_Release")
+    message(STATUS "building ${PROJECT_NAME} in Release mode")
+	add_library(${PROJECT_NAME} ${Source_files} ${Header_filse})
+		# Adding a macro (preprocessor definition) to the target
+	target_compile_definitions(${PROJECT_NAME} PRIVATE
+		RELEASE_MODE    # This macro will be defined for target
+	)
 endif()
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)

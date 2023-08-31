@@ -32,7 +32,7 @@ namespace ZM {
 			EventDispatcher(Event &e)
 				:m_Event(e){}
 			template<typename T>
-				void Dispatch(void(*func)(T&))
+				void Dispatch(bool(*func)(T&))
 				{
 					if(m_Event.GetEventType() == T::GetStaticType())
 					{

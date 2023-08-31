@@ -1,2 +1,2 @@
-/usr/bin/ar qc libZamhareer.a CMakeFiles/Zamhareer.dir/src/Engine.cpp.o CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o
+/usr/bin/ar qc libZamhareer.a CMakeFiles/Zamhareer.dir/src/Engine.cpp.o CMakeFiles/Zamhareer.dir/src/Layer.cpp.o CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o
 /usr/bin/ranlib libZamhareer.a

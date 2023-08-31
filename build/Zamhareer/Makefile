@@ -199,6 +199,30 @@ src/Engine.cpp.s:
 	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Engine.cpp.s
 .PHONY : src/Engine.cpp.s
 
+src/Layer.o: src/Layer.cpp.o
+.PHONY : src/Layer.o
+
+# target to build an object file
+src/Layer.cpp.o:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Layer.cpp.o
+.PHONY : src/Layer.cpp.o
+
+src/Layer.i: src/Layer.cpp.i
+.PHONY : src/Layer.i
+
+# target to preprocess a source file
+src/Layer.cpp.i:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Layer.cpp.i
+.PHONY : src/Layer.cpp.i
+
+src/Layer.s: src/Layer.cpp.s
+.PHONY : src/Layer.s
+
+# target to generate assembly for a file
+src/Layer.cpp.s:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Layer.cpp.s
+.PHONY : src/Layer.cpp.s
+
 src/window_impl/glfw_Window.o: src/window_impl/glfw_Window.cpp.o
 .PHONY : src/window_impl/glfw_Window.o
 
@@ -239,6 +263,9 @@ help:
 	@echo "... src/Engine.o"
 	@echo "... src/Engine.i"
 	@echo "... src/Engine.s"
+	@echo "... src/Layer.o"
+	@echo "... src/Layer.i"
+	@echo "... src/Layer.s"
 	@echo "... src/window_impl/glfw_Window.o"
 	@echo "... src/window_impl/glfw_Window.i"
 	@echo "... src/window_impl/glfw_Window.s"
