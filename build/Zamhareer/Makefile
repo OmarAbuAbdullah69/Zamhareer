@@ -223,29 +223,29 @@ src/Layer.cpp.s:
 	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Layer.cpp.s
 .PHONY : src/Layer.cpp.s
 
-src/window_impl/glfw_Window.o: src/window_impl/glfw_Window.cpp.o
-.PHONY : src/window_impl/glfw_Window.o
+src/Window/glfw_impl.o: src/Window/glfw_impl.cpp.o
+.PHONY : src/Window/glfw_impl.o
 
 # target to build an object file
-src/window_impl/glfw_Window.cpp.o:
-	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o
-.PHONY : src/window_impl/glfw_Window.cpp.o
+src/Window/glfw_impl.cpp.o:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o
+.PHONY : src/Window/glfw_impl.cpp.o
 
-src/window_impl/glfw_Window.i: src/window_impl/glfw_Window.cpp.i
-.PHONY : src/window_impl/glfw_Window.i
+src/Window/glfw_impl.i: src/Window/glfw_impl.cpp.i
+.PHONY : src/Window/glfw_impl.i
 
 # target to preprocess a source file
-src/window_impl/glfw_Window.cpp.i:
-	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.i
-.PHONY : src/window_impl/glfw_Window.cpp.i
+src/Window/glfw_impl.cpp.i:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.i
+.PHONY : src/Window/glfw_impl.cpp.i
 
-src/window_impl/glfw_Window.s: src/window_impl/glfw_Window.cpp.s
-.PHONY : src/window_impl/glfw_Window.s
+src/Window/glfw_impl.s: src/Window/glfw_impl.cpp.s
+.PHONY : src/Window/glfw_impl.s
 
 # target to generate assembly for a file
-src/window_impl/glfw_Window.cpp.s:
-	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.s
-.PHONY : src/window_impl/glfw_Window.cpp.s
+src/Window/glfw_impl.cpp.s:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.s
+.PHONY : src/Window/glfw_impl.cpp.s
 
 # Help Target
 help:
@@ -266,9 +266,9 @@ help:
 	@echo "... src/Layer.o"
 	@echo "... src/Layer.i"
 	@echo "... src/Layer.s"
-	@echo "... src/window_impl/glfw_Window.o"
-	@echo "... src/window_impl/glfw_Window.i"
-	@echo "... src/window_impl/glfw_Window.s"
+	@echo "... src/Window/glfw_impl.o"
+	@echo "... src/Window/glfw_impl.i"
+	@echo "... src/Window/glfw_impl.s"
 .PHONY : help
 
 

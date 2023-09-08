@@ -1,34 +1,28 @@
-#include "ZM/window_impl/glfw_Window.h"
-#include <GLFW/glfw3.h>
-
-#include <iostream>
-#include <functional>
+#include "ZM/Window/glfw_impl.h"
 
 
-#include"ZM/Engine.h"
+#include "ZM/Event/Event.h"
+#include "ZM/Event/KeyBoardEvent.h"
 #include "ZM/Event/MouseEvent.h"
 #include "ZM/Event/WindowEvent.h"
-#include "ZM/Event/KeyBoardEvent.h"
+
+#include "ZM/Engine.h"
 
 
-namespace ZM {
-
-	Window::Window(const char *name, glm::vec2 size)
-		:ViewPort(size), m_Name(name)
-	{}
-	void Window::Init()
+namespace ZM{
+	void glfw_imple_window::Init(const char *name, glm::vec2 size)
 	{
 		assert(glfwInit());
-		m_Handle = glfwCreateWindow(m_Size.x, m_Size.y, m_Name.c_str(), NULL, NULL);
+		m_Handle = glfwCreateWindow(size.x, size.y, name, NULL, NULL);
 
 		/* Make the window's context current */
     	glfwMakeContextCurrent(m_Handle);
-		SetUpEventCallback();
 	}
-	void Window::Refresh()
+	void glfw_imple_window::Refresh(glm::vec4 color)
 	{
+		
 		/* Render here */
-        glClearColor(m_ClearColor.x, m_ClearColor.y, m_ClearColor.z, m_ClearColor.a);
+        glClearColor(color.x, color.y, color.z, color.a);
 		glClear(GL_COLOR_BUFFER_BIT);
 		
         /* Swap front and back buffers */
@@ -37,8 +31,9 @@ namespace ZM {
 
         /* Poll for and process events */
         glfwPollEvents();
+	
 	}
-	void Window::SetUpEventCallback()
+	void glfw_imple_window::SetUpEventCallback()
 	{
 		// Window Events
 		//Window Resize
@@ -65,6 +60,8 @@ namespace ZM {
 		//Keyboard Events
 		glfwSetKeyCallback(m_Handle, [](GLFWwindow* window, int key, int scancode, int action, int mods){
 				assert(window);
+				scancode += 0;
+				mods +=0;
 				switch (action) {
 				case GLFW_PRESS:
 				{
@@ -110,6 +107,7 @@ namespace ZM {
 		//Mouse Button
 		glfwSetMouseButtonCallback(m_Handle, [](GLFWwindow* window, int button, int action, int mods)
 				{
+					mods +=0;
 					assert(window);
 					switch (action) {
 					case GLFW_PRESS:
@@ -127,8 +125,9 @@ namespace ZM {
 				}	
 				});
 		//Mouse Events
+
 	}
-	void Window::Terminate()
+	void glfw_imple_window::Terminate()
 	{
 		glfwTerminate();
 	}

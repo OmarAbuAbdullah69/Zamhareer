@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DDEBUG_MODE
 
-CXX_INCLUDES = -I/home/omar/Projects/Zamhareer/source/Game/include -I/home/omar/Projects/Zamhareer/source/Zamhareer/include -I/home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm -I/home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm
+CXX_INCLUDES = -I/home/omar/Projects/Zamhareer/source/Game/include -I/home/omar/Projects/Zamhareer/source/Zamhareer/include -I/home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm -I/home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glfw/include -I/home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm
 
 CXX_FLAGS = -g -Wall -Wextra -O2
 

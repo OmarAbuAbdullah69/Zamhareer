@@ -1,6 +1,10 @@
-#include<ZM/Engine.h>
-#include<ZM/window_impl/glfw_Window.h>
-#include<vec2.hpp> 
+#include <ZM/Engine.h>
+
+#include <ZM/Window/glfw_impl.h>
+#include <ZM/Window/Window.h>
+
+
+#include <vec2.hpp> 
 
 #include <ZM/Event/MouseEvent.h>
 
@@ -9,7 +13,7 @@
 int main()
 {
 	glm::vec2 vec(4.0, 234.2);
-	ZM::Window win("test window", glm::vec2(640, 480));
+	ZM::Window<ZM::glfw_imple_window> win("test window", glm::vec2(640, 480));
 	ZM::Engine en;
 	en.PushBackLayer<LayerA>("layer a1");
 	en.PushBackLayer<LayerA>("layer a2");

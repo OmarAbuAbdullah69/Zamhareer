@@ -97,32 +97,32 @@ Zamhareer/CMakeFiles/Zamhareer.dir/src/Layer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Zamhareer.dir/src/Layer.cpp.s"
 	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/omar/Projects/Zamhareer/source/Zamhareer/src/Layer.cpp -o CMakeFiles/Zamhareer.dir/src/Layer.cpp.s
 
-Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o: Zamhareer/CMakeFiles/Zamhareer.dir/flags.make
-Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o: /home/omar/Projects/Zamhareer/source/Zamhareer/src/window_impl/glfw_Window.cpp
-Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o: Zamhareer/CMakeFiles/Zamhareer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o"
-	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o -MF CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o.d -o CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o -c /home/omar/Projects/Zamhareer/source/Zamhareer/src/window_impl/glfw_Window.cpp
+Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o: Zamhareer/CMakeFiles/Zamhareer.dir/flags.make
+Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o: /home/omar/Projects/Zamhareer/source/Zamhareer/src/Window/glfw_impl.cpp
+Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o: Zamhareer/CMakeFiles/Zamhareer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o"
+	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o -MF CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o.d -o CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o -c /home/omar/Projects/Zamhareer/source/Zamhareer/src/Window/glfw_impl.cpp
 
-Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.i"
-	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/omar/Projects/Zamhareer/source/Zamhareer/src/window_impl/glfw_Window.cpp > CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.i
+Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.i"
+	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/omar/Projects/Zamhareer/source/Zamhareer/src/Window/glfw_impl.cpp > CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.i
 
-Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.s"
-	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/omar/Projects/Zamhareer/source/Zamhareer/src/window_impl/glfw_Window.cpp -o CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.s
+Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.s"
+	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/omar/Projects/Zamhareer/source/Zamhareer/src/Window/glfw_impl.cpp -o CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.s
 
 # Object files for target Zamhareer
 Zamhareer_OBJECTS = \
 "CMakeFiles/Zamhareer.dir/src/Engine.cpp.o" \
 "CMakeFiles/Zamhareer.dir/src/Layer.cpp.o" \
-"CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o"
+"CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o"
 
 # External object files for target Zamhareer
 Zamhareer_EXTERNAL_OBJECTS =
 
 Zamhareer/libZamhareer.a: Zamhareer/CMakeFiles/Zamhareer.dir/src/Engine.cpp.o
 Zamhareer/libZamhareer.a: Zamhareer/CMakeFiles/Zamhareer.dir/src/Layer.cpp.o
-Zamhareer/libZamhareer.a: Zamhareer/CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o
+Zamhareer/libZamhareer.a: Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o
 Zamhareer/libZamhareer.a: Zamhareer/CMakeFiles/Zamhareer.dir/build.make
 Zamhareer/libZamhareer.a: Zamhareer/CMakeFiles/Zamhareer.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libZamhareer.a"

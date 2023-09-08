@@ -235,14 +235,25 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: /home/omar/Projects/Zamhareer/source/Ga
   /usr/include/strings.h \
   /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
   /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
-  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/window_impl/glfw_Window.h \
+  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Window/glfw_impl.h \
+  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glfw/include/GLFW/glfw3.h \
+  /usr/include/GL/gl.h \
+  /usr/include/GL/glext.h \
+  /usr/include/KHR/khrplatform.h \
+  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Window/Window.h \
   /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/MouseEvent.h \
   /home/omar/Projects/Zamhareer/source/Game/include/TestLayer.h
 
 
 /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/MouseEvent.h:
 
-/home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/window_impl/glfw_Window.h:
+/home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Window/Window.h:
+
+/usr/include/KHR/khrplatform.h:
+
+/home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glfw/include/GLFW/glfw3.h:
+
+/home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Window/glfw_impl.h:
 
 /usr/include/c++/11/cstring:
 
@@ -488,6 +499,8 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: /home/omar/Projects/Zamhareer/source/Ga
 
 /usr/include/c++/11/exception:
 
+/usr/include/GL/gl.h:
+
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
 
 /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/ext/vector_bool4.hpp:
@@ -663,6 +676,8 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: /home/omar/Projects/Zamhareer/source/Ga
 /usr/include/assert.h:
 
 /usr/include/c++/11/bits/stl_iterator_base_types.h:
+
+/usr/include/GL/glext.h:
 
 /home/omar/Projects/Zamhareer/source/Game/src/main.cpp:
 

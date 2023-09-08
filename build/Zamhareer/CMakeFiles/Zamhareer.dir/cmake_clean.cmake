@@ -3,8 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Zamhareer.dir/src/Engine.cpp.o.d"
   "CMakeFiles/Zamhareer.dir/src/Layer.cpp.o"
   "CMakeFiles/Zamhareer.dir/src/Layer.cpp.o.d"
-  "CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o"
-  "CMakeFiles/Zamhareer.dir/src/window_impl/glfw_Window.cpp.o.d"
+  "CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o"
+  "CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o.d"
   "libZamhareer.a"
   "libZamhareer.pdb"
 )
