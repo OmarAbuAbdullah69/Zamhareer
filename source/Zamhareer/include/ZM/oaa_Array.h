@@ -1,21 +1,25 @@
-#pragma once
+#ifndef OAA_Array_Header
+#define OAA_Array_Header
 
 #include <cstddef>
 #include <cstring>
 #include <initializer_list>
-namespace ZM{
+
+namespace OAA
+{
+
 	template<typename T>
-	class Orray
+	class Array
 	{
 		private:
 			size_t m_Length = 0;
 			T *m_Data = nullptr;
 		public:
-			Orray(){}
-			Orray(size_t size);
-			Orray(std::initializer_list<T> list);
-			Orray(Orray<T> &&other);
-			~Orray();
+			Array();
+			Array(size_t size);
+			Array(std::initializer_list<T> list);
+			Array(Array<T> &&other);
+			~Array();
 			void Clear();
 
 			T &operator [](size_t index);
@@ -27,8 +31,13 @@ namespace ZM{
 			T *end() const;
 	};
 
+#ifdef OAA_ARRAY_IMPL
+
 	template<typename T>
-	Orray<T>::Orray(size_t size)
+	Array<T>::Array(){}
+	
+	template<typename T>
+	Array<T>::Array(size_t size)
 	{
 		if(size <= 0)
 			return;
@@ -38,7 +47,7 @@ namespace ZM{
 	}
 
 	template<typename T>
-	Orray<T>::Orray(std::initializer_list<T> list)
+	Array<T>::Array(std::initializer_list<T> list)
 	{
 		m_Length = list.size();
 		m_Data = new T[m_Length];
@@ -47,7 +56,7 @@ namespace ZM{
 
 
 	template<typename T>
-	Orray<T>::Orray(Orray<T> &&other)
+	Array<T>::Array(Array<T> &&other)
 	{
 		m_Length = other.Lenght();
 		m_Data = &other[0];
@@ -55,33 +64,33 @@ namespace ZM{
 	}
 
 	template<typename T>
-	Orray<T>::~Orray()
+	Array<T>::~Array()
 	{
 		delete[] m_Data;
 	}
 
 	template<typename T>
-	void Orray<T>::Clear()
+	void Array<T>::Clear()
 	{
 		m_Data = nullptr;
 		m_Length = 0;
 	}
 
 	template<typename T>
-	size_t Orray<T>::Lenght() const
+	size_t Array<T>::Lenght() const
 	{
 		return m_Length;
 	}
 
 
 	template<typename T>
-	T &Orray<T>::operator [](size_t index)
+	T &Array<T>::operator [](size_t index)
 	{
 		return m_Data[index];
 	}
 
 	template<typename T>
-	int Orray<T>::PushBack(T new_obj)
+	int Array<T>::PushBack(T new_obj)
 	{
 		T *new_pos = new T[m_Length+1];
 		if(!new_pos)
@@ -94,7 +103,7 @@ namespace ZM{
 	}
 
 	template<typename T>
-	int Orray<T>::Insert(size_t i, T new_obj)
+	int Array<T>::Insert(size_t i, T new_obj)
 	{
 		if(i >= m_Length)
 			return -1;
@@ -108,15 +117,17 @@ namespace ZM{
 	}
 
 	template<typename T>
-	T *Orray<T>::begin() const 
+	T *Array<T>::begin() const 
 	{
 		return m_Data;
 	}
 
 	template<typename T>
-	T *Orray<T>::end() const 
+	T *Array<T>::end() const 
 	{
 		return m_Data+m_Length;
 	}
-
 }
+#endif // Array_implementation
+
+#endif // Array_Header

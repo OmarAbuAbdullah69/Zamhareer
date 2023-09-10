@@ -3,7 +3,8 @@
 #include "Event/Event.h"
 #include "ZM/oaa_String.h"
 
-#include "Orray.h"
+#define OAA_ARRAY_IMPL 
+#include "oaa_Array.h"
 
 namespace ZM {
 	class Layer
@@ -28,6 +29,6 @@ namespace ZM {
 			void Update();
 			void OnEvent(Event &e);
 		private:
-			Orray<Layer *> m_Layers;	
+			OAA::Array<Layer *> m_Layers;	
 	};
 }

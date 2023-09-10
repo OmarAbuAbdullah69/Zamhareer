@@ -2,6 +2,8 @@
 #include "ViewPort.h"
 #include <iostream>
 #include "Layer.h"
+#include "Renderer/Renderer.h"
+
 namespace ZM {
 	class Engine
 	{
@@ -24,12 +26,14 @@ namespace ZM {
 			inline void SetViewPort(ViewPort * v){m_ViewPort = v;}
 			inline bool ShouldClose() const  {return m_Close;}
 			inline void Close() {m_Close = true;}
+			inline void SetRenderer(Renderer<void> r){m_Renderer = r;}
 		private:
 			LayerStack m_LayerStack;
 			static Engine *m_Instance;
 			ViewPort *m_ViewPort;
 			float m_Time;
 			bool m_Close = false;
+			Renderer<void> m_Renderer;
 
 	};
 }

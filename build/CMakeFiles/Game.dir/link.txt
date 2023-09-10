@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -rdynamic CMakeFiles/Game.dir/Game/src/main.cpp.o -o Game  Zamhareer/libZamhareer.a /usr/lib/x86_64-linux-gnu/libGL.so Zamhareer/vendor/glfw/src/libglfw3.a -Wl,-Bstatic -lrt -Wl,-Bdynamic -lm -ldl Zamhareer/vendor/glad/libglad.a 
