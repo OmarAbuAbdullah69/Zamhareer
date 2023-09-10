@@ -4,7 +4,7 @@ namespace ZM {
 	enum EventType {
 		None = 0,
 		//Window
-		WindowResize, WindwoMove, WindowClose,
+		WindowResize, WindwoMove, WindowClose, WindowDrop, 
 		//Input
 		 KeyPress, KeyRelease, CharacterEvent,
 		//Mouse

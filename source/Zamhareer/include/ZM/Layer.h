@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Event/Event.h"
-#include <string>
+#include "ZM/oaa_String.h"
+
 #include "Orray.h"
 
 namespace ZM {
@@ -14,9 +15,9 @@ namespace ZM {
 			virtual void Update() = 0;
 			virtual void OnEvent(Event &e) = 0;
 
-			std::string GetName() const {return m_Name;}
+			const char *GetName() {return m_Name.cstr();}
 		private:
-			std::string m_Name;
+			OAA::String m_Name;
 	};
 	class LayerStack
 	{

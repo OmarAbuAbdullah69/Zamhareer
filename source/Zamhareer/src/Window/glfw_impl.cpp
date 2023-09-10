@@ -56,6 +56,12 @@ namespace ZM{
 				WindowCloseEvent ev;
 				Engine::GetInstance()->OnEvent(ev);
 				});
+		glfwSetDropCallback(m_Handle, [](GLFWwindow* window, int count, const char **paths)
+				{
+				assert(window);
+				WindowDropEvent ev(count, paths);
+				Engine::GetInstance()->OnEvent(ev);
+				});
 		//Window Events
 		//Keyboard Events
 		glfwSetKeyCallback(m_Handle, [](GLFWwindow* window, int key, int scancode, int action, int mods){

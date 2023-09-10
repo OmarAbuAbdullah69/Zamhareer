@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ZM/ViewPort.h"
-#include <string>
+#include "ZM/oaa_String.h"
 
 struct GLFWwindow;
 
@@ -11,10 +11,10 @@ namespace ZM {
 	{
 		public:
 			Window(const char *name, glm::vec2 size)
-				:m_Name(name), ViewPort(size){}
+				:ViewPort(size), m_Name(name){}
 			virtual void Init() override
 			{
-				impl::Init(m_Name.c_str(), GetSize());
+				impl::Init(m_Name.cstr(), GetSize());
 				SetUpEventCallback();
 			}
 			virtual void Refresh() override
@@ -30,7 +30,7 @@ namespace ZM {
 				impl::Terminate();
 			}
 		private:
-			std::string m_Name;
+			OAA::String m_Name;
 	};
 	
 }
