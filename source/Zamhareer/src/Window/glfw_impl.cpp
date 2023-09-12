@@ -1,5 +1,7 @@
 #include "ZM/Window/glfw_impl.h"
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include "ZM/Event/Event.h"
 #include "ZM/Event/KeyBoardEvent.h"
@@ -13,20 +15,19 @@ namespace ZM{
 	void glfw_imple_window::Init(const char *name, glm::vec2 size)
 	{
 		assert(glfwInit());
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		m_Handle = glfwCreateWindow(size.x, size.y, name, NULL, NULL);
-
 		/* Make the window's context current */
-    	glfwMakeContextCurrent(m_Handle);
+    	glfwMakeContextCurrent((GLFWwindow *)m_Handle);
+		glfwSwapInterval(1);
+		gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
 	}
 	void glfw_imple_window::Refresh(glm::vec4 color)
 	{
-		
-		/* Render here */
-        glClearColor(color.x, color.y, color.z, color.a);
-		glClear(GL_COLOR_BUFFER_BIT);
-		
-        /* Swap front and back buffers */
-		glfwSwapBuffers(m_Handle);
+
+		/* Swap front and back buffers */
+		glfwSwapBuffers((GLFWwindow *)m_Handle);
 
 
         /* Poll for and process events */
@@ -37,26 +38,26 @@ namespace ZM{
 	{
 		// Window Events
 		//Window Resize
-		glfwSetWindowSizeCallback(m_Handle, [](GLFWwindow* window, int width, int height){
+		glfwSetWindowSizeCallback((GLFWwindow *)m_Handle, [](GLFWwindow* window, int width, int height){
 				assert(window);
 				WindowResizeEvent ev(width, height);
 				Engine::GetInstance()->OnEvent(ev);
 				});
 		//Window Move
-		glfwSetWindowPosCallback(m_Handle, [](GLFWwindow* window, int xpos, int ypos)
+		glfwSetWindowPosCallback((GLFWwindow *)m_Handle, [](GLFWwindow* window, int xpos, int ypos)
 				{
 				assert(window);
 				WindowMoveEvent ev(xpos, ypos);	
 				Engine::GetInstance()->OnEvent(ev);
 				});
 		//Window Close
-		glfwSetWindowCloseCallback(m_Handle, [](GLFWwindow* window)
+		glfwSetWindowCloseCallback((GLFWwindow *)m_Handle, [](GLFWwindow* window)
 				{
 				assert(window);
 				WindowCloseEvent ev;
 				Engine::GetInstance()->OnEvent(ev);
 				});
-		glfwSetDropCallback(m_Handle, [](GLFWwindow* window, int count, const char **paths)
+		glfwSetDropCallback((GLFWwindow *)m_Handle, [](GLFWwindow* window, int count, const char **paths)
 				{
 				assert(window);
 				WindowDropEvent ev(count, paths);
@@ -64,7 +65,7 @@ namespace ZM{
 				});
 		//Window Events
 		//Keyboard Events
-		glfwSetKeyCallback(m_Handle, [](GLFWwindow* window, int key, int scancode, int action, int mods){
+		glfwSetKeyCallback((GLFWwindow *)m_Handle, [](GLFWwindow* window, int key, int scancode, int action, int mods){
 				assert(window);
 				scancode += 0;
 				mods +=0;
@@ -89,7 +90,7 @@ namespace ZM{
 				}
 				}
 				});
-		glfwSetCharCallback(m_Handle, [](GLFWwindow* window, unsigned int codepoint){
+		glfwSetCharCallback((GLFWwindow *)m_Handle, [](GLFWwindow* window, unsigned int codepoint){
 				assert(window);
 				CharacterTypeEvent ev(codepoint); 
 				Engine::GetInstance()->OnEvent(ev);
@@ -97,21 +98,21 @@ namespace ZM{
 		//Keyboard Events
 		//Mouse Events
 		//Mouse Move
-		glfwSetCursorPosCallback(m_Handle, [](GLFWwindow *window, double xpos, double ypos)
+		glfwSetCursorPosCallback((GLFWwindow *)m_Handle, [](GLFWwindow *window, double xpos, double ypos)
 				{
 					assert(window);
 					MouseMoveEvent ev(xpos, ypos); 
 					Engine::GetInstance()->OnEvent(ev);
 				});
 		//Mouse Scroll
-		glfwSetScrollCallback(m_Handle, [](GLFWwindow *window, double xoffset, double yoffset)
+		glfwSetScrollCallback((GLFWwindow *)m_Handle, [](GLFWwindow *window, double xoffset, double yoffset)
 		{
 			assert(window);
 			MouseScrollEvent ev(xoffset, yoffset);
 			Engine::GetInstance()->OnEvent(ev);
 		});
 		//Mouse Button
-		glfwSetMouseButtonCallback(m_Handle, [](GLFWwindow* window, int button, int action, int mods)
+		glfwSetMouseButtonCallback((GLFWwindow *)m_Handle, [](GLFWwindow* window, int button, int action, int mods)
 				{
 					mods +=0;
 					assert(window);
@@ -135,6 +136,7 @@ namespace ZM{
 	}
 	void glfw_imple_window::Terminate()
 	{
+		glfwDestroyWindow((GLFWwindow *)m_Handle);
 		glfwTerminate();
 	}
 }

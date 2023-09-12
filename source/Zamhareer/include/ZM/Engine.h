@@ -9,6 +9,7 @@ namespace ZM {
 	{
 		public:
 			Engine();
+			~Engine();
 			virtual void Init();
 			virtual void Update();
 			virtual void OnEvent(Event& e);
@@ -22,18 +23,28 @@ namespace ZM {
 			}
 		
 			inline float GetTime() const {return m_Time;}
+
 			static Engine *GetInstance() {return m_Instance;}
+			
 			inline void SetViewPort(ViewPort * v){m_ViewPort = v;}
 			inline bool ShouldClose() const  {return m_Close;}
 			inline void Close() {m_Close = true;}
-			inline void SetRenderer(Renderer<void> r){m_Renderer = r;}
+			
+			template<class R>
+			void SetRenderer(Settings s)
+			{ 
+				m_Renderer = new R(s);
+
+			}
+			inline Renderer *GetRenderer() {return m_Renderer;}
 		private:
+			bool m_Close = false;
+			float m_Time;
+			
 			LayerStack m_LayerStack;
 			static Engine *m_Instance;
 			ViewPort *m_ViewPort;
-			float m_Time;
-			bool m_Close = false;
-			Renderer<void> m_Renderer;
+			Renderer *m_Renderer;
 
 	};
 }

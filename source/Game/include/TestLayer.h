@@ -9,14 +9,10 @@ class LayerA :public ZM::Layer
 		LayerA(const char *n)
 			:ZM::Layer(n){}
 		virtual void Init() override{
-			std::cout << "class A init"<<" by "<<GetName() << std::endl;
 		}
 		virtual void Update() override{
-			// std::cout << "class A Update"<<" by "<<GetName() << std::endl;
 		}
 		virtual void OnEvent(ZM::Event &e) override{
-			std::cout << "class A OnEvent"<<" by "<<GetName() << std::endl;
-			e.ToString();
 		}
 };
 class LayerB :public ZM::Layer
@@ -25,13 +21,9 @@ class LayerB :public ZM::Layer
 		LayerB(const char *n)
 			:ZM::Layer(n){}
 		virtual void Init() override{
-			std::cout << "class B init"<<" by "<<GetName() << std::endl;
 		}
 		virtual void Update() override{
-			// std::cout << "class B Update"<<" by "<<GetName() << std::endl;
 		}
 		virtual void OnEvent(ZM::Event &e) override{
-			std::cout << "class B OnEvent"<<" by "<<GetName() << std::endl;
-			e.ToString();
 		}
 };

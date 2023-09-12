@@ -1,6 +1,6 @@
 #pragma once
 
-#include <GLFW/glfw3.h>
+#include "ZM/Renderer/Renderer.h"
 
 #include <vec4.hpp>
 #include <vec2.hpp>
@@ -17,7 +17,7 @@ namespace ZM{
 			void SetUpEventCallback();
 			void Terminate();
 		private:
-			GLFWwindow *m_Handle;
+			void *m_Handle;
 	};
 
 }

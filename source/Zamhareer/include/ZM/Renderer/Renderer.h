@@ -10,33 +10,19 @@ namespace ZM
 		glm::vec2 RenderPos;
 	};
 
-	template<class impl>
-	class Renderer :public impl
+	class Renderer
 	{
 		public:
-			Renderer(){}
-			Renderer(Sittings s)
-			 	:m_Sittings(s){}
+			Renderer(Settings s)
+				:m_Settings(s){}
+			virtual ~Renderer(){}
 
-			void Init()
-			{
-				impl::Init();
-			}
-			void Update()
-			{
-				impl::Update();
-			}
-			void Terminate()
-			{
-				impl::Terminate();
-			}
-			inline Settings &GetSittings(){return m_Sittings;}
-			~Renderer()
-			{
-				Terminate();
-			}
+			virtual void Init() = 0;
+			virtual void Update() = 0;
+			virtual void Terminate() = 0;
+			inline Settings &GetSittings(){return m_Settings;}
 		private:
-			Settings m_Sittings;
+			Settings m_Settings;
 
-	}
+	};
 }

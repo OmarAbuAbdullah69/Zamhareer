@@ -19,8 +19,10 @@ namespace ZM{
 
 			inline glm::vec4 GetColor() const {return m_ClearColor;}
 			inline void SetColor(glm::vec4 c){m_ClearColor = c;}
+			inline void SetRenderCall(void(*func)()){Render = func;}
 
 		protected:
+			void(*Render)() = NULL;
 			virtual void SetUpEventCallback() = 0;
 			glm::vec4 m_ClearColor = glm::vec4(1.0, 0.0, 1.0, 1.0);
 			glm::vec2 m_Size;

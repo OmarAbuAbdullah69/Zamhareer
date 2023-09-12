@@ -8,14 +8,25 @@
 
 namespace ZM {
 	Engine *Engine::m_Instance = nullptr;
+
 	Engine::Engine(){
 		assert(!m_Instance);
 		m_Instance = this;
 	}
+	Engine::~Engine()
+	{
+		delete m_Renderer;
+	}
 	void Engine::Init(){
 		m_LayerStack.Init();
-		if(m_ViewPort)
+		if(m_ViewPort){
 			m_ViewPort->Init();
+			m_ViewPort->SetRenderCall([]()
+				{
+					Engine::GetInstance()->GetRenderer()->Update();
+				});}
+		if(m_Renderer)
+			m_Renderer->Init();
 	}
 	
 
@@ -24,13 +35,12 @@ namespace ZM {
 		m_LayerStack.Update();
 		if(m_ViewPort)
 			m_ViewPort->Refresh();
+		if(m_Renderer)
+			m_Renderer->Init();
 	}
 	
 	void Engine::OnEvent(Event& e)
 	{
-	#ifdef DEBUG_MODE
-		e.ToString();
-	#endif // DEBUG
 		EventDispatcher dis(e);
 		dis.Dispatch<WindowCloseEvent>([](WindowCloseEvent &e){
 				Engine::GetInstance()->Close();
@@ -42,6 +52,8 @@ namespace ZM {
 	{
 		if(m_ViewPort)
 			m_ViewPort->Terminate();
+		if(m_Renderer)
+			m_Renderer->Init();
 	}
 
 
