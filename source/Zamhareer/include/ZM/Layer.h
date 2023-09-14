@@ -3,7 +3,6 @@
 #include "Event/Event.h"
 #include "ZM/oaa_String.h"
 
-#define OAA_ARRAY_IMPL 
 #include "oaa_Array.h"
 
 namespace ZM {

@@ -13,7 +13,8 @@ namespace ZM{
 	{
 		protected:
 			void Init(const char *name, glm::vec2 size);
-			void Refresh(glm::vec4 color);
+			void Clear(glm::vec4 color);
+			void ShowNPoll();
 			void SetUpEventCallback();
 			void Terminate();
 		private:

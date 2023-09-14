@@ -23,16 +23,17 @@ namespace ZM{
 		glfwSwapInterval(1);
 		gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
 	}
-	void glfw_imple_window::Refresh(glm::vec4 color)
+	void glfw_imple_window::Clear(glm::vec4 color)
 	{
-
+        glClearColor(color.x, color.y, color.z, color.a);
+		glClear(GL_COLOR_BUFFER_BIT);
+	}
+	void glfw_imple_window::ShowNPoll()
+	{
 		/* Swap front and back buffers */
 		glfwSwapBuffers((GLFWwindow *)m_Handle);
-
-
         /* Poll for and process events */
         glfwPollEvents();
-	
 	}
 	void glfw_imple_window::SetUpEventCallback()
 	{
