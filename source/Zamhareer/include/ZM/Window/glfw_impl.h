@@ -5,8 +5,6 @@
 #include <vec4.hpp>
 #include <vec2.hpp>
 
-#include <iostream>
-
 namespace ZM{
 
 	class glfw_imple_window

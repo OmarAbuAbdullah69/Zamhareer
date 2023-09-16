@@ -1,6 +1,5 @@
 #pragma once
 #include "ViewPort.h"
-#include <iostream>
 #include "Layer.h"
 #include "Renderer/Renderer.h"
 
@@ -34,7 +33,6 @@ namespace ZM {
 			void SetRenderer(Settings s)
 			{ 
 				m_Renderer = new R(s);
-
 			}
 			inline Renderer *GetRenderer() {return m_Renderer;}
 		private:

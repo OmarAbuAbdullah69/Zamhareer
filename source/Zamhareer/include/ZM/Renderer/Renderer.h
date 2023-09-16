@@ -10,7 +10,7 @@ namespace ZM
 	struct Vertex
 	{
 		glm::vec3 Pos;
-		glm::vec2 Norm;
+		glm::vec3 Norm;
 		glm::vec2 UV;
 	};
 	struct Settings
@@ -30,8 +30,8 @@ namespace ZM
 			virtual void Update() = 0;
 			virtual void Terminate() = 0;
 
-			virtual void *CreatMesh(OAA::Array<Vertex> verts, OAA::Array<unsigned int> indices) = 0;
-
+			virtual void *CreatMesh(OAA::Array<Vertex> &verts, OAA::Array<unsigned int> &indices) = 0;
+			virtual void DrawMesh(void *data) = 0;
 			inline Settings &GetSittings(){return m_Settings;}
 		private:
 			Settings m_Settings;

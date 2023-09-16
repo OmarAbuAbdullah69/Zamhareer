@@ -1,7 +1,5 @@
 #include "ZM/Layer.h"
 
-#include<iostream>
-
 namespace ZM {
 	Layer::Layer(const char * n)
 		:m_Name(n)

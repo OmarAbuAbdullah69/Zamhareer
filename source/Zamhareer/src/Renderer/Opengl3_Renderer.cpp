@@ -19,23 +19,25 @@ namespace ZM
 	{
 
 	}
-	void *OGL3_Renderer::CreatMesh(OAA::Array<Vertex> verts, OAA::Array<unsigned int> indices)
+	void *OGL3_Renderer::CreatMesh(OAA::Array<Vertex> &verts, OAA::Array<unsigned int> &indices)
 	{
 		// Vertex array, Vertex buffer, Elemnet buffer
-		unsigned int *buffers = new unsigned int[3];
+		MeshData *md = new MeshData;
 		
+		md->count = indices.Length();
+
 		//Vertex Array
-		glGenVertexArrays(1, buffers);
-		glBindVertexArray(buffers[0]);
+		glGenVertexArrays(1, &(md->VAO));
+		glBindVertexArray((md->VAO));
 
 		// vertex buffer object
-		glGenBuffers(1, &buffers[1]);
-		glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
+		glGenBuffers(1, &(md->VBO));
+		glBindBuffer(GL_ARRAY_BUFFER, md->VBO);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)*verts.Length(), &verts[0], GL_STATIC_DRAW);
 	    
 		//Vertex Elements buffer
-		glGenBuffers(1, &buffers[2]);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffers[2]);
+		glGenBuffers(1, &(md->EBO));
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, md->EBO);
     	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*indices.Length(), &indices[0], GL_STATIC_DRAW);
 		
 		// vertex positions
@@ -50,6 +52,13 @@ namespace ZM
 
     	glBindVertexArray(0);
 		
-		return buffers;
+		return md;
+	}
+	void OGL3_Renderer::DrawMesh(void *data)
+	{
+		MeshData _data = *((MeshData *)data);
+		glBindVertexArray(_data.VAO);
+		glDrawElements(GL_TRIANGLES, _data.count, GL_UNSIGNED_INT, 0);
+		glBindVertexArray(0);
 	}
 }

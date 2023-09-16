@@ -1,7 +1,5 @@
 #include "ZM/Engine.h"
 
-#include <iostream>
-
 #include "ZM/Event/WindowEvent.h"
 #include "ZM/Event/KeyBoardEvent.h"
 #include "ZM/Event/MouseEvent.h"
@@ -18,7 +16,6 @@ namespace ZM {
 		delete m_Renderer;
 	}
 	void Engine::Init(){
-		m_LayerStack.Init();
 		if(m_ViewPort){
 			m_ViewPort->Init();
 			m_ViewPort->SetRenderCall([]()
@@ -27,6 +24,8 @@ namespace ZM {
 				});}
 		if(m_Renderer)
 			m_Renderer->Init();
+
+		m_LayerStack.Init();
 	}
 	
 

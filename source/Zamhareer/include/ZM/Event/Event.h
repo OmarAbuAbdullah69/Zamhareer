@@ -1,5 +1,9 @@
 #pragma once
 
+#ifdef DEBUG_MODE
+#include <iostream>
+#endif // DEBUG
+
 namespace ZM {
 	enum EventType {
 		None = 0,

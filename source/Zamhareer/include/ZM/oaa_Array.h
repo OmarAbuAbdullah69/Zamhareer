@@ -16,6 +16,7 @@ namespace OAA
 			T *m_Data = nullptr;
 		public:
 			Array();
+			Array(const Array<T> &other);
 			Array(size_t size);
 			Array(std::initializer_list<T> list);
 			Array(Array<T> &&other);
@@ -34,6 +35,13 @@ namespace OAA
 	template<typename T>
 	Array<T>::Array(){}
 	
+	template<typename T>
+	Array<T>::Array(const Array<T> &other)
+	{
+		m_Length = other.m_Length;
+		memcpy(m_Data, other.m_Data, sizeof(T)*m_Length);
+	}
+
 	template<typename T>
 	Array<T>::Array(size_t size)
 	{

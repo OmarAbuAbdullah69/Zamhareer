@@ -12,8 +12,11 @@
 
 #include <vec2.hpp>
 
+#include <ZM/oaa_Array.h>
+#include <ZM/oaa_String.h>
 int main()
 {
+	
 	glm::vec2 vec(4.0, 234.2);
 	ZM::Window<ZM::glfw_imple_window> win("test window", glm::vec2(640, 480));
 	ZM::Engine en;
@@ -22,8 +25,8 @@ int main()
 		.RenderPos = glm::vec2(0, 0)
 	};
 	en.SetRenderer<ZM::OGL3_Renderer>(s);
-	en.PushBackLayer<LayerA>("layer a1");
-	en.PushBackLayer<LayerA>("layer a2");
+	en.PushBackLayer<LayerA>("layer A");
+	en.PushBackLayer<LayerB>("layer B");
 	en.SetViewPort(&win);
 	en.Init();
 	while (!en.ShouldClose()) {

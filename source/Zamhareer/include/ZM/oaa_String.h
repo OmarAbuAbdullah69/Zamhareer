@@ -2,7 +2,8 @@
 #define OAA_STRING_H
 
 #include <cstring>
-
+#include <cassert>
+#include <fstream>
 namespace OAA
 {
 	class String
@@ -22,6 +23,7 @@ namespace OAA
 			char *m_CString;
 			size_t m_Lenght;
 	};
+	String LoadFile(const char *path);
 }
 
 #ifdef OAA_STRING_IMPL
@@ -85,6 +87,24 @@ namespace OAA
 		memcpy(data+m_Lenght-1, s, sizeof(char)*strlen(s));
 		m_Lenght = lenght;
 		m_CString = data;
+	}
+	String LoadFile(const char * path)
+	{
+		std::ifstream file(path, std::ios::binary | std::ios::ate);
+		if(!file.is_open())
+		{
+			assert(0&&"error opening the file");
+		}
+		std::streampos size = file.tellg();
+		file.seekg(0, std::ios::beg);
+		char buffer[(int)size];
+		file.read(buffer, size);
+		buffer[(int)size-1] = '\0';
+		if(file.bad())
+		{
+			assert(0&&"error while reading");
+		}
+		return String(buffer);
 	}
 }
 
