@@ -20,8 +20,9 @@ namespace ZM {
 			virtual void Refresh() override
 			{
 				impl::Clear(m_ClearColor);
-				if(Render)
-					Render();
+			}
+			virtual void Draw() override
+			{
 				impl::ShowNPoll();
 			}
 			virtual void SetUpEventCallback() override

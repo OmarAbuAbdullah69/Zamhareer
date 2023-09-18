@@ -1,9 +1,66 @@
 #include "ZM/Renderer/Opengl3_Renderer.h"
 
 #include <glad/glad.h>
+#include <iostream>
+#include "ZM/oaa_String.h"
 
 namespace ZM
 {
+	unsigned int MakeShader(const char *vert, const char *frag)
+	{
+		unsigned int ID;
+		OAA::String vertex_src = OAA::LoadFile(vert);
+		OAA::String fragment_src = OAA::LoadFile(frag);
+	
+		const char *vsrc = vertex_src.cstr();
+		const char *fsrc = fragment_src.cstr();
+		// 2. compile shaders
+		unsigned int vertex, fragment;
+		int success;
+		char infoLog[512];
+			
+		vertex = glCreateShader(GL_VERTEX_SHADER);
+		glShaderSource(vertex, 1, &vsrc, NULL);
+
+		glCompileShader(vertex);
+
+		glGetShaderiv(vertex, GL_COMPILE_STATUS, &success);
+		if(!success)
+		{
+			glGetShaderInfoLog(vertex, 512, NULL, infoLog);
+			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		};
+
+		fragment = glCreateShader(GL_FRAGMENT_SHADER);
+		glShaderSource(fragment, 1, &fsrc, NULL);
+
+		glCompileShader(fragment);
+
+		glGetShaderiv(fragment, GL_COMPILE_STATUS, &success);
+		if(!success)
+		{
+			glGetShaderInfoLog(fragment, 512, NULL, infoLog);
+			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+		}
+
+		// shader Program
+		ID = glCreateProgram();
+		glAttachShader(ID, vertex);
+		glAttachShader(ID, fragment);
+		glLinkProgram(ID);
+		// print linking errors if any
+		glGetProgramiv(ID, GL_LINK_STATUS, &success);
+		if(!success)
+		{
+			glGetProgramInfoLog(ID, 512, NULL, infoLog);
+			std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+		}	  
+		// delete the shaders as they're linked into our program now and no longer necessary
+		glDeleteShader(vertex);
+		glDeleteShader(fragment);
+
+		return ID;
+	}
 	OGL3_Renderer::OGL3_Renderer(Settings s)
 		:Renderer(s)
 	{
@@ -11,9 +68,13 @@ namespace ZM
 	void OGL3_Renderer::Init()
 	{
 
-	}
-	void OGL3_Renderer::Update()
-	{
+		// viewport
+		unsigned x, y, w, h;
+		x = m_Settings.RenderPos.x;
+		y = m_Settings.RenderPos.y;
+		w = m_Settings.RenderSize.x;
+		h = m_Settings.RenderSize.y;
+		glViewport(x, y, w, h);
 	}
 	void OGL3_Renderer::Terminate()
 	{
@@ -23,7 +84,7 @@ namespace ZM
 	{
 		// Vertex array, Vertex buffer, Elemnet buffer
 		MeshData *md = new MeshData;
-		
+		md->ShaderProgram = MakeShader("resources/shaders/vertex.glsl", "resources/shaders/fragment.glsl");
 		md->count = indices.Length();
 
 		//Vertex Array
@@ -34,7 +95,7 @@ namespace ZM
 		glGenBuffers(1, &(md->VBO));
 		glBindBuffer(GL_ARRAY_BUFFER, md->VBO);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)*verts.Length(), &verts[0], GL_STATIC_DRAW);
-	    
+
 		//Vertex Elements buffer
 		glGenBuffers(1, &(md->EBO));
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, md->EBO);
@@ -42,7 +103,7 @@ namespace ZM
 		
 		// vertex positions
     	glEnableVertexAttribArray(0);	
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Pos));
+		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Pos));
 		// vertex positions
     	glEnableVertexAttribArray(1);	
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Norm));
@@ -58,7 +119,18 @@ namespace ZM
 	{
 		MeshData _data = *((MeshData *)data);
 		glBindVertexArray(_data.VAO);
+		glUseProgram(_data.ShaderProgram);
 		glDrawElements(GL_TRIANGLES, _data.count, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
+	}
+	void OGL3_Renderer::ResetSettings()
+	{
+		// viewport
+		unsigned x, y, w, h;
+		x = m_Settings.RenderPos.x;
+		y = m_Settings.RenderPos.y;
+		w = m_Settings.RenderSize.x;
+		h = m_Settings.RenderSize.y;
+		glViewport(x, y, w, h);
 	}
 }

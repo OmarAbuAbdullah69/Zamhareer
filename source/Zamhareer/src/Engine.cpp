@@ -16,26 +16,21 @@ namespace ZM {
 		delete m_Renderer;
 	}
 	void Engine::Init(){
-		if(m_ViewPort){
+		if(m_ViewPort)
 			m_ViewPort->Init();
-			m_ViewPort->SetRenderCall([]()
-				{
-					Engine::GetInstance()->GetRenderer()->Update();
-				});}
 		if(m_Renderer)
 			m_Renderer->Init();
 
 		m_LayerStack.Init();
 	}
 	
-
-
 	void Engine::Update(){
-		m_LayerStack.Update();
 		if(m_ViewPort)
 			m_ViewPort->Refresh();
-		if(m_Renderer)
-			m_Renderer->Init();
+		m_LayerStack.Update();
+		if(m_ViewPort)
+			m_ViewPort->Draw();
+
 	}
 	
 	void Engine::OnEvent(Event& e)
@@ -44,6 +39,14 @@ namespace ZM {
 		dis.Dispatch<WindowCloseEvent>([](WindowCloseEvent &e){
 				Engine::GetInstance()->Close();
 				return true;});
+
+		dis.Dispatch<WindowResizeEvent>([](WindowResizeEvent &e){
+				Settings &s = Engine::GetInstance()->GetRenderer()->GetSettings();
+				s.RenderSize = e.GetSize();
+				Engine::GetInstance()->GetRenderer()->ResetSettings();
+				return true;
+				});
+
 		m_LayerStack.OnEvent(e);
 	}
 	
@@ -52,7 +55,7 @@ namespace ZM {
 		if(m_ViewPort)
 			m_ViewPort->Terminate();
 		if(m_Renderer)
-			m_Renderer->Init();
+			m_Renderer->Terminate();
 	}
 
 

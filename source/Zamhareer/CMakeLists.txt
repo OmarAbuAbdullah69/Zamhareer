@@ -31,6 +31,9 @@ elseif(${CMAKE_BUILD_TYPE} STREQUAL "_Release")
 	)
 endif()
 
+
+
+
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 message(STATUS "adding opengl")

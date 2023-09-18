@@ -10,6 +10,7 @@
 
 #include "ZM/Engine.h"
 
+#include <iostream>
 
 namespace ZM{
 	void glfw_imple_window::Init(const char *name, glm::vec2 size)

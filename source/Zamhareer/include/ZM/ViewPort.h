@@ -12,6 +12,7 @@ namespace ZM{
 				:m_Size(size) {}
 			virtual void Init() = 0;
 			virtual void Refresh() = 0;
+			virtual void Draw() = 0;
 			virtual void Terminate() = 0;
 			
 			inline glm::vec2 GetSize() const {return m_Size;}
@@ -19,10 +20,8 @@ namespace ZM{
 
 			inline glm::vec4 GetColor() const {return m_ClearColor;}
 			inline void SetColor(glm::vec4 c){m_ClearColor = c;}
-			inline void SetRenderCall(void(*func)()){Render = func;}
 
 		protected:
-			void(*Render)() = NULL;
 			virtual void SetUpEventCallback() = 0;
 			glm::vec4 m_ClearColor = glm::vec4(1.0, 0.0, 1.0, 1.0);
 			glm::vec2 m_Size;

@@ -21,9 +21,9 @@ class LayerB :public ZM::Layer
 		LayerB(const char *n)
 			:ZM::Layer(n){}
 		virtual void Init() override{
-			OAA::Array<ZM::Vertex> verts = {{glm::vec3(0.0f, 0.5f, 0.0f), glm::vec3(0), glm::vec2(0)},
-								{glm::vec3(0.5f, 0.0f, 0.0f), glm::vec3(0), glm::vec2(0)},
-								{glm::vec3(-0.5f, 0.0f, 0.0f), glm::vec3(0), glm::vec2(0)}};
+			OAA::Array<ZM::Vertex> verts = {{glm::vec4(0., 0.5f, 0, 1), glm::vec3(1, 0, 0), glm::vec2(0)},
+								{glm::vec4(0.5, -0.5, 0, 1), glm::vec3(0, 1, 0), glm::vec2(0)},
+								{glm::vec4(-0.5, -0.5, 0, 1), glm::vec3(0, 0, 1), glm::vec2(0)}};
 			OAA::Array<unsigned int> indces = {0, 1, 2};
 			m_mesh = m_RendererRef->CreatMesh(verts, indces);
 		}

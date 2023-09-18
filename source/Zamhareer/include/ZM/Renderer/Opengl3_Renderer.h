@@ -13,11 +13,11 @@ namespace ZM
 		public:
 			OGL3_Renderer(Settings s);
 			virtual void Init() override;
-			virtual void Update() override;
 			virtual void Terminate() override;
 	
 			virtual void *CreatMesh(OAA::Array<Vertex> &verts, OAA::Array<unsigned int> &indices)override;
 			virtual void DrawMesh(void *data);
+			virtual void ResetSettings();
 	};
 	
 }
