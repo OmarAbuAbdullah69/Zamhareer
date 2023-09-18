@@ -2,8 +2,8 @@
 #define OAA_STRING_H
 
 #include <cstring>
-#include <cassert>
 #include <fstream>
+
 namespace OAA
 {
 	class String
@@ -11,6 +11,8 @@ namespace OAA
 		public:
 			String(const char *s);
 			String(const String &s);
+			void operator=(const String &other);
+			void operator=(const char *other);
 			const char * cstr();
 			inline size_t len() const {return m_Lenght-1;}
 			String operator +(const String &s);
@@ -23,7 +25,7 @@ namespace OAA
 			char *m_CString;
 			size_t m_Lenght;
 	};
-	String LoadFile(const char *path);
+	String LoadFile(const char *path, int *state);
 }
 
 #ifdef OAA_STRING_IMPL
@@ -45,9 +47,24 @@ namespace OAA
 		m_CString = new char[m_Lenght];
 		memcpy(m_CString, s, sizeof(char)*m_Lenght);
 	}
+	void String::operator=(const String &other)
+	{
+		m_Lenght = other.m_Lenght;
+		char *newdata = new char[m_Lenght];
+		memcpy(newdata, other.m_CString, sizeof(char)*m_Lenght);
+		m_CString = newdata;
+	}
+	void String::operator=(const char *other)
+	{
+		m_Lenght = strlen(other)+1;
+		char *newdata = new char[m_Lenght];
+		memcpy(newdata, other, sizeof(char)*m_Lenght);
+		m_CString = newdata;
+	}
 	String::~String()
 	{
-		delete[] m_CString;
+		if(m_CString)
+			delete[] m_CString;
 	}
 	const char *String::cstr()
 	{
@@ -64,10 +81,10 @@ namespace OAA
 	}
 	String String::operator +(const char *s)
 	{
-		size_t lenght = strlen(s) + m_Lenght - 1;
+		size_t lenght = strlen(s) + m_Lenght;
 		char *data = new char[lenght];
 		memcpy(data, m_CString, sizeof(char)*(m_Lenght-1));
-		memcpy(data+m_Lenght-1, s, sizeof(char)*strlen(s));
+		memcpy(data+m_Lenght-1, s, sizeof(char)*strlen(s)+1);
 		return String(data, lenght);
 	}
 	void String::operator +=(const String &s)
@@ -88,12 +105,13 @@ namespace OAA
 		m_Lenght = lenght;
 		m_CString = data;
 	}
-	String LoadFile(const char * path)
+	String LoadFile(const char * path, int *state )
 	{
+		*state = 0;
 		std::ifstream file(path, std::ios::binary | std::ios::ate);
 		if(!file.is_open())
 		{
-			assert(0&&"error opening the file");
+			*state = 1;
 		}
 		std::streampos size = file.tellg();
 		file.seekg(0, std::ios::beg);
@@ -102,8 +120,9 @@ namespace OAA
 		buffer[(int)size-1] = '\0';
 		if(file.bad())
 		{
-			assert(0&&"error while reading");
+			*state = 1;
 		}
+		if(*state) return String("");
 		return String(buffer);
 	}
 }

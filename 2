@@ -9,23 +9,22 @@ namespace ZM
 	static unsigned int MakeShader(const char *path)
 	{
 		unsigned int ID;
-
 		OAA::String _path(path);
+
 		int verterr, fragerr;
-		reload:
+
 		OAA::String vertex_src = OAA::LoadFile((_path+"/vertex.glsl").cstr(), &verterr);
 		OAA::String fragment_src = OAA::LoadFile((_path+"/fragment.glsl").cstr(), &fragerr);
-
+	
+		std::cout << (_path+"/vertex").cstr() << std::endl;
 
 		if(verterr || fragerr)
 		{
-			_path = "resources/shaders/default";
-			goto reload;
+			// _path = "resources/shaders/default";
 		}
-		
+
 		const char *vsrc = vertex_src.cstr();
 		const char *fsrc = fragment_src.cstr();
-	
 		// 2. compile shaders
 		unsigned int vertex, fragment;
 		int success;
@@ -41,8 +40,6 @@ namespace ZM
 		{
 			glGetShaderInfoLog(vertex, 512, NULL, infoLog);
 			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
-			_path = "resources/shaders/default";
-			goto reload;
 		};
 
 		fragment = glCreateShader(GL_FRAGMENT_SHADER);
@@ -55,8 +52,6 @@ namespace ZM
 		{
 			glGetShaderInfoLog(fragment, 512, NULL, infoLog);
 			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
-			_path = "resources/shaders/default";
-			goto reload;
 		}
 
 		// shader Program
@@ -70,8 +65,6 @@ namespace ZM
 		{
 			glGetProgramInfoLog(ID, 512, NULL, infoLog);
 			std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
-			_path = "resources/shaders/default";
-			goto reload;
 		}	  
 		// delete the shaders as they're linked into our program now and no longer necessary
 		glDeleteShader(vertex);
