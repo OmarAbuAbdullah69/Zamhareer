@@ -19,10 +19,10 @@ namespace ZM {
 			l->Init();
 		}
 	}
-	void LayerStack::Update()
+	void LayerStack::Update(double delta)
 	{
 		for(Layer *l : m_Layers) {
-			l->Update();
+			l->Update(delta);
 		}
 	}
 	void LayerStack::OnEvent(Event &e)

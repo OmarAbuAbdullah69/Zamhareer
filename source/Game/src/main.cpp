@@ -17,12 +17,12 @@
 int main()
 {
 	
-	glm::vec2 vec(4.0, 234.2);
-	ZM::Window<ZM::glfw_imple_window> win("test window", glm::vec2(640, 480));
+	ZM::Window<ZM::glfw_imple_window> win("test window", glm::vec2(640, 480), 0);
 	ZM::Engine en;
 	ZM::Settings s = {
 		.RenderSize = glm::vec2(640, 480),
-		.RenderPos = glm::vec2(0, 0)
+		.RenderPos = glm::vec2(0, 0),
+		.GammaCorrection = true,
 	};
 	en.SetRenderer<ZM::OGL3_Renderer>(s);
 	en.PushBackLayer<LayerA>("layer A");

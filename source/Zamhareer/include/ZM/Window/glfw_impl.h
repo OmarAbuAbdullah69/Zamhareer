@@ -10,7 +10,7 @@ namespace ZM{
 	class glfw_imple_window
 	{
 		protected:
-			void Init(const char *name, glm::vec2 size);
+			void Init(const char *name, glm::vec2 size, int modes);
 			void Clear(glm::vec4 color);
 			void ShowNPoll();
 			void SetUpEventCallback();

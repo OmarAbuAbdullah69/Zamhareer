@@ -6,6 +6,44 @@
 
 namespace ZM
 {
+
+	Texture::Texture()
+	{
+
+	}
+	Texture::Texture(Image i)
+	{
+		glGenTextures(1, &m_ID);
+		glBindTexture(GL_TEXTURE_2D, m_ID);
+		// set the texture wrapping/filtering options (on the currently bound texture object)
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		// load and generate the texture
+		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+		glPixelStorei(GL_PACK_ALIGNMENT, 1);
+		if (i.Data) {
+			if(i.NRC == 3){
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, i.Width, i.Height, 0, GL_RGB, GL_UNSIGNED_BYTE, i.Data);
+				glGenerateMipmap(GL_TEXTURE_2D);
+			}
+			else if (i.NRC == 4) {
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, i.Width, i.Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, i.Data);
+				glGenerateMipmap(GL_TEXTURE_2D);
+				
+			}
+		}
+		else {
+			std::cout << "Empty image" << std::endl;
+		}
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+	void Texture::Use()
+	{
+		glBindTexture(GL_TEXTURE_2D, m_ID);
+	}
+
 	static unsigned int MakeShader(const char *path)
 	{
 		unsigned int ID;
@@ -85,25 +123,27 @@ namespace ZM
 	}
 	void OGL3_Renderer::Init()
 	{
-
-		// viewport
-		unsigned x, y, w, h;
-		x = m_Settings.RenderPos.x;
-		y = m_Settings.RenderPos.y;
-		w = m_Settings.RenderSize.x;
-		h = m_Settings.RenderSize.y;
-		glViewport(x, y, w, h);
+		ResetSettings();
+		if(m_Settings.GammaCorrection)
+			glEnable(GL_FRAMEBUFFER_SRGB); 
 	}
 	void OGL3_Renderer::Terminate()
 	{
 
 	}
-	void *OGL3_Renderer::CreatMesh(OAA::Array<Vertex> &verts, OAA::Array<unsigned int> &indices)
+	void *OGL3_Renderer::CreatMesh(OAA::Array<Vertex> &verts, OAA::Array<unsigned int> &indices, const Material &mat)
 	{
 		// Vertex array, Vertex buffer, Elemnet buffer
 		MeshData *md = new MeshData;
 		md->ShaderProgram = MakeShader("resources/shaders/default");
-		md->count = indices.Length();
+		md->Count = indices.Length();
+		
+
+		int TexturesCount = sizeof(Material)/sizeof(Image);
+		Texture *Textures = new Texture[TexturesCount];
+		md->TexturesCount = TexturesCount;
+		md->Textures = Textures;
+		Textures[0] = Texture(mat.Albedo);
 
 		//Vertex Array
 		glGenVertexArrays(1, &(md->VAO));
@@ -138,7 +178,16 @@ namespace ZM
 		MeshData _data = *((MeshData *)data);
 		glBindVertexArray(_data.VAO);
 		glUseProgram(_data.ShaderProgram);
-		glDrawElements(GL_TRIANGLES, _data.count, GL_UNSIGNED_INT, 0);
+		int viewportsize_location = glGetUniformLocation(_data.ShaderProgram, "ViewportSize");
+		if(!(viewportsize_location == -1))
+		{
+			glUniform2f(viewportsize_location, m_Settings.RenderSize.x, m_Settings.RenderSize.y);
+		}
+		// for(unsigned int i=0; i<_data.TexturesCount; i++)
+		// {
+		// 	_data.Textures[i].Use();
+		// }
+		glDrawElements(GL_TRIANGLES, _data.Count, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 	}
 	void OGL3_Renderer::ResetSettings()

@@ -27,7 +27,7 @@ namespace ZM {
 			#endif // DEBUG
 			inline bool IsHandled() const {return m_Handled;}
 		private:
-			bool m_Handled;
+			bool m_Handled = false;
 	};
 
 	class EventDispatcher
@@ -40,7 +40,7 @@ namespace ZM {
 				{
 					if(m_Event.GetEventType() == T::GetStaticType())
 					{
-						m_Event.m_Handled = func(*((T *)&m_Event)); 
+						m_Event.m_Handled = func(*((T *)&m_Event)) || m_Event.m_Handled; 
 					}
 				}
 		private:

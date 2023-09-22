@@ -12,7 +12,7 @@ namespace ZM {
 			Layer(const char * n);
 			virtual ~Layer();
 			virtual void Init() = 0;
-			virtual void Update() = 0;
+			virtual void Update(double delta) = 0;
 			virtual void OnEvent(Event &e) = 0;
 
 			const char *GetName() {return m_Name.cstr();}
@@ -25,7 +25,7 @@ namespace ZM {
 			~LayerStack();
 			void PushLayer(Layer *l);
 			void Init();
-			void Update();
+			void Update(double delta);
 			void OnEvent(Event &e);
 		private:
 			OAA::Array<Layer *> m_Layers;	

@@ -25,9 +25,14 @@ namespace ZM {
 	}
 	
 	void Engine::Update(){
+		static double lstfrm = 0;
+		double crnttime = m_Timer.GetTime();
+		m_Delta = crnttime - lstfrm;
+		lstfrm = crnttime;
+		
 		if(m_ViewPort)
 			m_ViewPort->Refresh();
-		m_LayerStack.Update();
+		m_LayerStack.Update(m_Delta);
 		if(m_ViewPort)
 			m_ViewPort->Draw();
 

@@ -13,12 +13,28 @@
 #include <iostream>
 
 namespace ZM{
-	void glfw_imple_window::Init(const char *name, glm::vec2 size)
+	void glfw_imple_window::Init(const char *name, glm::vec2 size, int modes)
 	{
 		assert(glfwInit());
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-		m_Handle = glfwCreateWindow(size.x, size.y, name, NULL, NULL);
+		
+		GLFWmonitor* monitor = NULL;
+
+		if(modes & 1)
+		{
+			glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+		}
+		else if(modes & (1<<1))
+		{
+			monitor = glfwGetPrimaryMonitor();
+		}
+		if(modes & (1<<2))
+		{
+			glfwWindowHint(GLFW_DECORATED, false);
+		}
+
+		m_Handle = glfwCreateWindow(size.x, size.y, name, monitor, NULL);
 		/* Make the window's context current */
     	glfwMakeContextCurrent((GLFWwindow *)m_Handle);
 		glfwSwapInterval(1);

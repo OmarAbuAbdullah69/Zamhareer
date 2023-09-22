@@ -10,10 +10,12 @@ class LayerA :public ZM::Layer
 			:ZM::Layer(n){}
 		virtual void Init() override{
 		}
-		virtual void Update() override{
+		virtual void Update(double delta) override{
 		}
 		virtual void OnEvent(ZM::Event &e) override{
 		}
+	private:
+
 };
 class LayerB :public ZM::Layer
 {
@@ -21,13 +23,23 @@ class LayerB :public ZM::Layer
 		LayerB(const char *n)
 			:ZM::Layer(n){}
 		virtual void Init() override{
-			OAA::Array<ZM::Vertex> verts = {{glm::vec4(0., 0.5f, 0, 1), glm::vec3(1, 0, 0), glm::vec2(0)},
-								{glm::vec4(0.5, -0.5, 0, 1), glm::vec3(0, 1, 0), glm::vec2(0)},
-								{glm::vec4(-0.5, -0.5, 0, 1), glm::vec3(0, 0, 1), glm::vec2(0)}};
-			OAA::Array<unsigned int> indces = {0, 1, 2};
-			m_mesh = m_RendererRef->CreatMesh(verts, indces);
+			OAA::Array<ZM::Vertex> verts = {{glm::vec4(1.0, 1.0, 0, 1), glm::vec3(0), glm::vec2(1.0 ,1.0)},
+								{glm::vec4(-1.0, 1.0, 0, 1), glm::vec3(0), glm::vec2(0.0, 1.0)},
+								{glm::vec4(-1.0, -1.0, 0, 1), glm::vec3(0), glm::vec2(0.0, 0.0)},
+								{glm::vec4(1.0, -1.0, 0, 1), glm::vec3(0), glm::vec2(1.0, 0.0)}};
+			OAA::Array<unsigned int> indces = {0, 1, 2, 0, 2, 3};
+
+			int staterr;
+			ZM::Material mat = {
+				.Albedo = ZM::LoadImage("resources/Images/image.png", &staterr)
+			};
+			if(staterr)
+			{
+				std::cout << "faild loading image" << std::endl;
+			}
+			m_mesh = m_RendererRef->CreatMesh(verts, indces, mat);
 		}
-		virtual void Update() override{
+		virtual void Update(double delta) override{
 			m_RendererRef->DrawMesh(m_mesh);
 		}
 		virtual void OnEvent(ZM::Event &e) override{

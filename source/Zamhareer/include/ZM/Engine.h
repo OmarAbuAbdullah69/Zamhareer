@@ -2,6 +2,7 @@
 #include "ViewPort.h"
 #include "Layer.h"
 #include "Renderer/Renderer.h"
+#include "oaa_Timer.h"
 
 namespace ZM {
 	class Engine
@@ -21,7 +22,7 @@ namespace ZM {
 				m_LayerStack.PushLayer(l);
 			}
 		
-			inline float GetTime() const {return m_Time;}
+			inline float GetTime() {return m_Timer.GetTime();}
 
 			static Engine *GetInstance() {return m_Instance;}
 			
@@ -37,8 +38,8 @@ namespace ZM {
 			inline Renderer *GetRenderer() {return m_Renderer;}
 		private:
 			bool m_Close = false;
-			float m_Time;
-			
+			float m_Delta;
+			OAA::Timer m_Timer;
 			LayerStack m_LayerStack;
 			static Engine *m_Instance;
 			ViewPort *m_ViewPort;
