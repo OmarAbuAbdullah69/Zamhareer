@@ -9,10 +9,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/omar/Projects/Zamhareer/source/Zamhareer/src/Engine.cpp" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Engine.cpp.o" "gcc" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Engine.cpp.o.d"
+  "/home/omar/Projects/Zamhareer/source/Zamhareer/src/Image.cpp" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Image.cpp.o" "gcc" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Image.cpp.o.d"
   "/home/omar/Projects/Zamhareer/source/Zamhareer/src/Layer.cpp" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Layer.cpp.o" "gcc" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Layer.cpp.o.d"
   "/home/omar/Projects/Zamhareer/source/Zamhareer/src/Renderer/Opengl3_Renderer.cpp" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Renderer/Opengl3_Renderer.cpp.o" "gcc" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Renderer/Opengl3_Renderer.cpp.o.d"
   "/home/omar/Projects/Zamhareer/source/Zamhareer/src/Window/glfw_impl.cpp" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o" "gcc" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o.d"
   "/home/omar/Projects/Zamhareer/source/Zamhareer/src/oaa_String.cpp" "Zamhareer/CMakeFiles/Zamhareer.dir/src/oaa_String.cpp.o" "gcc" "Zamhareer/CMakeFiles/Zamhareer.dir/src/oaa_String.cpp.o.d"
+  "/home/omar/Projects/Zamhareer/source/Zamhareer/src/oaa_Timer.cpp" "Zamhareer/CMakeFiles/Zamhareer.dir/src/oaa_Timer.cpp.o" "gcc" "Zamhareer/CMakeFiles/Zamhareer.dir/src/oaa_Timer.cpp.o.d"
   )
 
 # Targets to which this target links.

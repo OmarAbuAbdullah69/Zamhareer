@@ -84,6 +84,7 @@ Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
  /usr/include/c++/11/initializer_list \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Image.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glad/include/glad/glad.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glad/include/KHR/khrplatform.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glfw/include/GLFW/glfw3.h \
@@ -226,4 +227,7 @@ Zamhareer/CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/oaa_Array.h
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/oaa_Array.h \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/oaa_Timer.h \
+ /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
+ /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h

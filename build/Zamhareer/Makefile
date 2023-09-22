@@ -199,6 +199,30 @@ src/Engine.cpp.s:
 	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Engine.cpp.s
 .PHONY : src/Engine.cpp.s
 
+src/Image.o: src/Image.cpp.o
+.PHONY : src/Image.o
+
+# target to build an object file
+src/Image.cpp.o:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Image.cpp.o
+.PHONY : src/Image.cpp.o
+
+src/Image.i: src/Image.cpp.i
+.PHONY : src/Image.i
+
+# target to preprocess a source file
+src/Image.cpp.i:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Image.cpp.i
+.PHONY : src/Image.cpp.i
+
+src/Image.s: src/Image.cpp.s
+.PHONY : src/Image.s
+
+# target to generate assembly for a file
+src/Image.cpp.s:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Image.cpp.s
+.PHONY : src/Image.cpp.s
+
 src/Layer.o: src/Layer.cpp.o
 .PHONY : src/Layer.o
 
@@ -295,6 +319,30 @@ src/oaa_String.cpp.s:
 	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/oaa_String.cpp.s
 .PHONY : src/oaa_String.cpp.s
 
+src/oaa_Timer.o: src/oaa_Timer.cpp.o
+.PHONY : src/oaa_Timer.o
+
+# target to build an object file
+src/oaa_Timer.cpp.o:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/oaa_Timer.cpp.o
+.PHONY : src/oaa_Timer.cpp.o
+
+src/oaa_Timer.i: src/oaa_Timer.cpp.i
+.PHONY : src/oaa_Timer.i
+
+# target to preprocess a source file
+src/oaa_Timer.cpp.i:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/oaa_Timer.cpp.i
+.PHONY : src/oaa_Timer.cpp.i
+
+src/oaa_Timer.s: src/oaa_Timer.cpp.s
+.PHONY : src/oaa_Timer.s
+
+# target to generate assembly for a file
+src/oaa_Timer.cpp.s:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/oaa_Timer.cpp.s
+.PHONY : src/oaa_Timer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -311,6 +359,9 @@ help:
 	@echo "... src/Engine.o"
 	@echo "... src/Engine.i"
 	@echo "... src/Engine.s"
+	@echo "... src/Image.o"
+	@echo "... src/Image.i"
+	@echo "... src/Image.s"
 	@echo "... src/Layer.o"
 	@echo "... src/Layer.i"
 	@echo "... src/Layer.s"
@@ -323,6 +374,9 @@ help:
 	@echo "... src/oaa_String.o"
 	@echo "... src/oaa_String.i"
 	@echo "... src/oaa_String.s"
+	@echo "... src/oaa_Timer.o"
+	@echo "... src/oaa_Timer.i"
+	@echo "... src/oaa_Timer.s"
 .PHONY : help
 
 

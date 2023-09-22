@@ -84,6 +84,7 @@ Zamhareer/CMakeFiles/Zamhareer.dir/src/Renderer/Opengl3_Renderer.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
  /usr/include/c++/11/initializer_list \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Image.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glad/include/glad/glad.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glad/include/KHR/khrplatform.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
