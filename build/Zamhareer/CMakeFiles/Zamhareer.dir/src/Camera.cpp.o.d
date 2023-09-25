@@ -1,14 +1,10 @@
-CMakeFiles/Game.dir/Game/src/main.cpp.o: \
- /home/omar/Projects/Zamhareer/source/Game/src/main.cpp \
+Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.o: \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/src/Camera.cpp \
  /usr/include/stdc-predef.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Engine.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/ViewPort.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/vec4.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_bool4.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_vec4.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/qualifier.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/setup.hpp \
- /usr/include/c++/11/cassert \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Camera.h \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Node.h \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/oaa_String.h \
+ /usr/include/c++/11/cstring \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -19,51 +15,15 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
- /usr/include/c++/11/pstl/pstl_config.h /usr/include/assert.h \
- /usr/include/c++/11/cstddef \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../simd/platform.h \
- /usr/include/c++/11/cstdint \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
+ /usr/include/c++/11/pstl/pstl_config.h /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
- /usr/include/x86_64-linux-gnu/bits/types.h \
- /usr/include/x86_64-linux-gnu/bits/typesizes.h \
- /usr/include/x86_64-linux-gnu/bits/time64.h \
- /usr/include/x86_64-linux-gnu/bits/wchar.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /usr/include/c++/11/type_traits \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_vec4.inl \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/compute_vector_relational.hpp \
- /usr/include/c++/11/limits \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_bool4_precision.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_float4.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_float4_precision.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_double4.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_double4_precision.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/setup.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_int4.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_int4_sized.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../ext/scalar_int_sized.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../ext/../detail/setup.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_uint4.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_uint4_sized.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../ext/scalar_uint_sized.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/vec2.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_bool2.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_vec2.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_vec2.inl \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_bool2_precision.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_float2.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_float2_precision.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_double2.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_double2_precision.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_int2.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_int2_sized.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_uint2.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_uint2_sized.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/Event.h \
- /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h \
+ /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+ /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
+ /usr/include/c++/11/fstream /usr/include/c++/11/istream \
  /usr/include/c++/11/ios /usr/include/c++/11/iosfwd \
  /usr/include/c++/11/bits/stringfwd.h \
  /usr/include/c++/11/bits/memoryfwd.h /usr/include/c++/11/bits/postypes.h \
@@ -71,13 +31,12 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
  /usr/include/c++/11/exception /usr/include/c++/11/bits/exception.h \
  /usr/include/c++/11/bits/exception_ptr.h \
@@ -85,6 +44,7 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: \
  /usr/include/c++/11/bits/cxxabi_init_exception.h \
  /usr/include/c++/11/typeinfo /usr/include/c++/11/bits/hash_bytes.h \
  /usr/include/c++/11/new /usr/include/c++/11/bits/move.h \
+ /usr/include/c++/11/type_traits \
  /usr/include/c++/11/bits/nested_exception.h \
  /usr/include/c++/11/bits/char_traits.h \
  /usr/include/c++/11/bits/stl_algobase.h \
@@ -99,7 +59,13 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: \
  /usr/include/c++/11/debug/assertions.h \
  /usr/include/c++/11/bits/stl_iterator.h \
  /usr/include/c++/11/bits/ptr_traits.h /usr/include/c++/11/debug/debug.h \
- /usr/include/c++/11/bits/predefined_ops.h \
+ /usr/include/c++/11/bits/predefined_ops.h /usr/include/c++/11/cstdint \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/c++/11/bits/localefwd.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
  /usr/include/c++/11/clocale /usr/include/locale.h \
@@ -190,20 +156,14 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: \
  /usr/include/c++/11/bits/streambuf_iterator.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
  /usr/include/c++/11/bits/locale_facets.tcc \
- /usr/include/c++/11/bits/basic_ios.tcc \
- /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Layer.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/oaa_String.h \
- /usr/include/c++/11/cstring /usr/include/string.h /usr/include/strings.h \
- /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
- /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/c++/11/bits/basic_ios.tcc /usr/include/c++/11/ostream \
+ /usr/include/c++/11/bits/ostream.tcc \
+ /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/oaa_Array.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Renderer/Renderer.h \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/Event.h \
+ /usr/include/c++/11/iostream \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/glm.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/_fixes.hpp \
  /usr/include/c++/11/cmath /usr/include/math.h \
@@ -216,7 +176,8 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
- /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/tr1/gamma.tcc \
+ /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/limits \
+ /usr/include/c++/11/tr1/gamma.tcc \
  /usr/include/c++/11/tr1/special_function_util.h \
  /usr/include/c++/11/tr1/bessel_function.tcc \
  /usr/include/c++/11/tr1/beta_function.tcc \
@@ -229,6 +190,9 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
  /usr/include/c++/11/tr1/riemann_zeta.tcc \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/setup.hpp \
+ /usr/include/c++/11/cassert /usr/include/assert.h \
+ /usr/include/c++/11/cstddef \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/../simd/platform.h \
  /usr/include/c++/11/climits \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
@@ -240,6 +204,26 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h /usr/include/c++/11/cfloat \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/fwd.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/qualifier.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/setup.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/vec2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_bool2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_vec2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_vec2.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/./compute_vector_relational.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/./setup.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_bool2_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_float2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_float2_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_double2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_double2_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_int2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_int2_sized.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../ext/scalar_int_sized.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../ext/../detail/setup.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_uint2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_uint2_sized.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../ext/scalar_uint_sized.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/vec3.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_bool3.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_vec3.hpp \
@@ -253,6 +237,20 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_int3_sized.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_uint3.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_uint3_sized.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/vec4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_bool4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_vec4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_vec4.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_bool4_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_float4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_float4_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_double4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_double4_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/setup.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_int4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_int4_sized.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_uint4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_uint4_sized.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/mat2x2.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/matrix_double2x2.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_mat2x2.hpp \
@@ -339,21 +337,9 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/packing.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/func_packing.inl \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/type_half.hpp \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/setup.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/type_half.inl \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/integer.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/func_integer.inl \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/oaa_Array.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Image.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Color.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/oaa_Timer.h \
- /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
- /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Window/glfw_impl.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Window/Window.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Renderer/Opengl3_Renderer.h \
- /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Event/MouseEvent.h \
- /home/omar/Projects/Zamhareer/source/Game/include/TestLayer.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/gtc/matrix_transform.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/gtc/../ext/matrix_projection.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/gtc/../ext/../gtc/constants.hpp \
@@ -366,4 +352,5 @@ CMakeFiles/Game.dir/Game/src/main.cpp.o: \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/gtc/../ext/matrix_clip_space.inl \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/gtc/../ext/matrix_transform.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/gtc/../ext/matrix_transform.inl \
- /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/gtc/matrix_transform.inl
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/gtc/matrix_transform.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/oaa_Array.h

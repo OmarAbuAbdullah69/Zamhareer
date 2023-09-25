@@ -16,7 +16,7 @@ namespace ZM {
 	class Window :public ViewPort,public impl
 	{
 		public:
-			Window(const char *name, glm::vec2 size, int modes)
+			Window(const char *name, glm::vec2 size, int modes = 0)
 				:ViewPort(size), m_Name(name), m_Modes(modes){}
 			virtual void Init() override
 			{

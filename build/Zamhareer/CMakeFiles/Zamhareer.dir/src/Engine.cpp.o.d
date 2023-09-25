@@ -204,6 +204,42 @@ Zamhareer/CMakeFiles/Zamhareer.dir/src/Engine.cpp.o: \
  /usr/include/c++/11/bits/fstream.tcc \
  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/oaa_Array.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Renderer/Renderer.h \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/glm.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/_fixes.hpp \
+ /usr/include/c++/11/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/tr1/gamma.tcc \
+ /usr/include/c++/11/tr1/special_function_util.h \
+ /usr/include/c++/11/tr1/bessel_function.tcc \
+ /usr/include/c++/11/tr1/beta_function.tcc \
+ /usr/include/c++/11/tr1/ell_integral.tcc \
+ /usr/include/c++/11/tr1/exp_integral.tcc \
+ /usr/include/c++/11/tr1/hypergeometric.tcc \
+ /usr/include/c++/11/tr1/legendre_function.tcc \
+ /usr/include/c++/11/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/11/tr1/poly_hermite.tcc \
+ /usr/include/c++/11/tr1/poly_laguerre.tcc \
+ /usr/include/c++/11/tr1/riemann_zeta.tcc \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/setup.hpp \
+ /usr/include/c++/11/climits \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h /usr/include/c++/11/cfloat \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/fwd.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/vec3.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_bool3.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_vec3.hpp \
@@ -217,8 +253,99 @@ Zamhareer/CMakeFiles/Zamhareer.dir/src/Engine.cpp.o: \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_int3_sized.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_uint3.hpp \
  /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/vector_uint3_sized.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/mat2x2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/matrix_double2x2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_mat2x2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/type_mat2x2.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../matrix.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/setup.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../mat2x3.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double2x3.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat2x3.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat2x3.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double2x3_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float2x3.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float2x3_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../mat2x4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double2x4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat2x4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat2x4.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double2x4_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float2x4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float2x4_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../mat3x2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double3x2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x2.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double3x2_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float3x2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float3x2_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../mat3x3.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double3x3.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x3.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x3.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double3x3_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float3x3.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float3x3_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../mat3x4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double3x4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x4.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double3x4_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float3x4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float3x4_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../mat4x2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double4x2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x2.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double4x2_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float4x2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float4x2_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../mat4x3.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double4x3.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x3.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x3.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double4x3_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float4x3.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float4x3_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../mat4x4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double4x4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x4.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_double4x4_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float4x4.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/.././ext/matrix_float4x4_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/func_matrix.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../geometric.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/func_geometric.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../exponential.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../detail/type_vec1.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../detail/type_vec1.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../detail/func_exponential.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../detail/../vector_relational.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../detail/../detail/setup.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../detail/../detail/func_vector_relational.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../detail/_vectorize.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../common.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../detail/_fixes.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../detail/func_common.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../detail/compute_common.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/../detail/../detail/../detail/../detail/setup.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/matrix_double2x2_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/matrix_float2x2.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/./ext/matrix_float2x2_precision.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/trigonometric.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/func_trigonometric.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/packing.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/func_packing.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/type_half.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/setup.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/type_half.inl \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/integer.hpp \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/vendor/glm/glm/detail/func_integer.inl \
  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/oaa_Array.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Image.h \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Color.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/oaa_Timer.h \
  /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
  /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \

@@ -2,6 +2,7 @@ Zamhareer/CMakeFiles/Zamhareer.dir/src/Image.cpp.o: \
  /home/omar/Projects/Zamhareer/source/Zamhareer/src/Image.cpp \
  /usr/include/stdc-predef.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Image.h \
+ /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/Color.h \
  /home/omar/Projects/Zamhareer/source/Zamhareer/include/ZM/stb_image.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \

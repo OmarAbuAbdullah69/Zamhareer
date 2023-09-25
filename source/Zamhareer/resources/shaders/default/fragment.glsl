@@ -2,9 +2,12 @@
 
 in vec3 vNorm;
 in vec2 Reslotion;
-in vec2 coord;
+in vec2 vUV;
+
+uniform sampler2D Albedo;
 
 void main()
 {
-	gl_FragColor =  vec4(coord, 0.0, 1.0);
+	vec4 color =  texture2D(Albedo, vUV);
+	gl_FragColor = color;
 }

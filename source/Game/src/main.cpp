@@ -17,7 +17,7 @@
 int main()
 {
 	
-	ZM::Window<ZM::glfw_imple_window> win("test window", glm::vec2(640, 480), 0);
+	ZM::Window<ZM::glfw_imple_window> win("Game", glm::vec2(640, 480));
 	ZM::Engine en;
 	ZM::Settings s = {
 		.RenderSize = glm::vec2(640, 480),

@@ -27,7 +27,7 @@ namespace ZM
 			virtual void Terminate() override;
 	
 			virtual void *CreatMesh(OAA::Array<Vertex> &verts, OAA::Array<unsigned int> &indices, const Material &mat)override;
-			virtual void DrawMesh(void *data);
+			virtual void DrawMesh(void *data, glm::mat4 transform, glm::mat4 ViewPorject) override;
 			virtual void ResetSettings();
 	};
 	

@@ -1,8 +1,7 @@
 #pragma once
 
-#include <vec2.hpp>
-#include <vec3.hpp>
-#include <vec4.hpp>
+#include <glm/glm.hpp>
+
 #include "ZM/oaa_Array.h"
 #include "ZM/Image.h"
 
@@ -37,7 +36,7 @@ namespace ZM
 			virtual void Terminate() = 0;
 
 			virtual void *CreatMesh(OAA::Array<Vertex> &verts, OAA::Array<unsigned int> &indices, const Material &mat) = 0;
-			virtual void DrawMesh(void *data) = 0;
+			virtual void DrawMesh(void *data, glm::mat4 transform, glm::mat4 ViewPorject) = 0;
 			inline Settings &GetSettings(){return m_Settings;}
 			virtual void ResetSettings() = 0;
 		protected:

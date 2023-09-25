@@ -175,6 +175,54 @@ Zamhareer/fast:
 	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/build
 .PHONY : Zamhareer/fast
 
+src/Camera.o: src/Camera.cpp.o
+.PHONY : src/Camera.o
+
+# target to build an object file
+src/Camera.cpp.o:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.o
+.PHONY : src/Camera.cpp.o
+
+src/Camera.i: src/Camera.cpp.i
+.PHONY : src/Camera.i
+
+# target to preprocess a source file
+src/Camera.cpp.i:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.i
+.PHONY : src/Camera.cpp.i
+
+src/Camera.s: src/Camera.cpp.s
+.PHONY : src/Camera.s
+
+# target to generate assembly for a file
+src/Camera.cpp.s:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.s
+.PHONY : src/Camera.cpp.s
+
+src/Color.o: src/Color.cpp.o
+.PHONY : src/Color.o
+
+# target to build an object file
+src/Color.cpp.o:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Color.cpp.o
+.PHONY : src/Color.cpp.o
+
+src/Color.i: src/Color.cpp.i
+.PHONY : src/Color.i
+
+# target to preprocess a source file
+src/Color.cpp.i:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Color.cpp.i
+.PHONY : src/Color.cpp.i
+
+src/Color.s: src/Color.cpp.s
+.PHONY : src/Color.s
+
+# target to generate assembly for a file
+src/Color.cpp.s:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Color.cpp.s
+.PHONY : src/Color.cpp.s
+
 src/Engine.o: src/Engine.cpp.o
 .PHONY : src/Engine.o
 
@@ -246,6 +294,30 @@ src/Layer.s: src/Layer.cpp.s
 src/Layer.cpp.s:
 	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Layer.cpp.s
 .PHONY : src/Layer.cpp.s
+
+src/Node.o: src/Node.cpp.o
+.PHONY : src/Node.o
+
+# target to build an object file
+src/Node.cpp.o:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Node.cpp.o
+.PHONY : src/Node.cpp.o
+
+src/Node.i: src/Node.cpp.i
+.PHONY : src/Node.i
+
+# target to preprocess a source file
+src/Node.cpp.i:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Node.cpp.i
+.PHONY : src/Node.cpp.i
+
+src/Node.s: src/Node.cpp.s
+.PHONY : src/Node.s
+
+# target to generate assembly for a file
+src/Node.cpp.s:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Node.cpp.s
+.PHONY : src/Node.cpp.s
 
 src/Renderer/Opengl3_Renderer.o: src/Renderer/Opengl3_Renderer.cpp.o
 .PHONY : src/Renderer/Opengl3_Renderer.o
@@ -356,6 +428,12 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... Zamhareer"
+	@echo "... src/Camera.o"
+	@echo "... src/Camera.i"
+	@echo "... src/Camera.s"
+	@echo "... src/Color.o"
+	@echo "... src/Color.i"
+	@echo "... src/Color.s"
 	@echo "... src/Engine.o"
 	@echo "... src/Engine.i"
 	@echo "... src/Engine.s"
@@ -365,6 +443,9 @@ help:
 	@echo "... src/Layer.o"
 	@echo "... src/Layer.i"
 	@echo "... src/Layer.s"
+	@echo "... src/Node.o"
+	@echo "... src/Node.i"
+	@echo "... src/Node.s"
 	@echo "... src/Renderer/Opengl3_Renderer.o"
 	@echo "... src/Renderer/Opengl3_Renderer.i"
 	@echo "... src/Renderer/Opengl3_Renderer.s"

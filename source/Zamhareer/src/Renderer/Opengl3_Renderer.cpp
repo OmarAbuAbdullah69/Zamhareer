@@ -35,7 +35,7 @@ namespace ZM
 			}
 		}
 		else {
-			std::cout << "Empty image" << std::endl;
+			std::cout << "Loading Texture Error: Empty image" << std::endl;
 		}
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
@@ -173,20 +173,33 @@ namespace ZM
 		
 		return md;
 	}
-	void OGL3_Renderer::DrawMesh(void *data)
+	void OGL3_Renderer::DrawMesh(void *data,  glm::mat4 transform, glm::mat4 viewprojection)
 	{
 		MeshData _data = *((MeshData *)data);
 		glBindVertexArray(_data.VAO);
 		glUseProgram(_data.ShaderProgram);
-		int viewportsize_location = glGetUniformLocation(_data.ShaderProgram, "ViewportSize");
-		if(!(viewportsize_location == -1))
+
+		int VPSLoc = glGetUniformLocation(_data.ShaderProgram, "ViewportSize");
+		if(!(VPSLoc == -1))
 		{
-			glUniform2f(viewportsize_location, m_Settings.RenderSize.x, m_Settings.RenderSize.y);
+			glUniform2f(VPSLoc, m_Settings.RenderSize.x, m_Settings.RenderSize.y);
 		}
-		// for(unsigned int i=0; i<_data.TexturesCount; i++)
-		// {
-		// 	_data.Textures[i].Use();
-		// }
+
+		int TranLoc = glGetUniformLocation(_data.ShaderProgram, "Transform");
+		if(!(TranLoc == -1))
+		{
+			glUniformMatrix4fv(TranLoc, 1, GL_FALSE, &transform[0][0]);
+		}
+	
+		int VPLoc = glGetUniformLocation(_data.ShaderProgram, "ViewProjection");
+		if(!(VPLoc == -1))
+		{
+			glUniformMatrix4fv(VPLoc, 1, GL_FALSE, &viewprojection[0][0]);
+		}	
+		for(unsigned int i=0; i<_data.TexturesCount; i++)
+		{
+			_data.Textures[i].Use();
+		}
 		glDrawElements(GL_TRIANGLES, _data.Count, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 	}

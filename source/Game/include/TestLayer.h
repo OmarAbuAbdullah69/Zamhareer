@@ -1,8 +1,11 @@
 #pragma once
 
 
-#include<ZM/Layer.h>
+#include <ZM/Layer.h>
 #include <iostream>
+#include <glm/gtc/matrix_transform.hpp>
+
+
 class LayerA :public ZM::Layer
 {
 	public:
@@ -40,7 +43,7 @@ class LayerB :public ZM::Layer
 			m_mesh = m_RendererRef->CreatMesh(verts, indces, mat);
 		}
 		virtual void Update(double delta) override{
-			m_RendererRef->DrawMesh(m_mesh);
+			m_RendererRef->DrawMesh(m_mesh, glm::mat4(1.0), glm::scale(glm::mat4(1.0), glm::vec3(0.5, 0.5, 1.0)));
 		}
 		virtual void OnEvent(ZM::Event &e) override{
 		}
