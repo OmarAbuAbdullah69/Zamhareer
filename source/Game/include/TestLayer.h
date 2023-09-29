@@ -130,7 +130,7 @@ void quad::Init()
 }
 void quad::Update(double delta)
 {
-	m_RendererRef->DrawMesh(m_mesh, GetTransform(), glm::mat4(1.0));// LayerA::CurrentCamera->GetView());
+	m_RendererRef->DrawMesh(m_mesh, GetTransform(), LayerA::CurrentCamera->GetView());
 }
 void quad::OnEvent(ZM::Event &e)
 {
