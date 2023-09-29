@@ -12,7 +12,7 @@ namespace ZM
 	class Node
 	{
 		public:
-			Node(const char *name, Node *parent = NULL)
+			Node(const char *name, Node *parent)
 				:m_Name(name), m_Parent(parent)
 			{
 				if(m_Parent)
@@ -36,10 +36,11 @@ namespace ZM
 			}
 			virtual void OnEvent(Event &event)
 			{
-				for(size_t i=m_Childrens.Length(); i >= 0; i--)
+				for(int i=m_Childrens.Length()-1; i >= 0; i--)
 				{
 					m_Childrens[i]->OnEvent(event);
 				}
+				
 			}
 			inline OAA::String GetName() const {return m_Name;}
 			inline Node *GetParent(){return m_Parent;}
@@ -52,7 +53,7 @@ namespace ZM
 	class Node2D: public Node
 	{
 		public:
-			Node2D(const char * name, Node *parent);
+			Node2D(const char * name, Node2D *parent = NULL);
 			virtual void Init() override;
 			virtual void Update(double delta) override;
 			virtual void OnEvent(Event &event) override;

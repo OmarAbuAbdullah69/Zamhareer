@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Zamhareer.dir/src/Camera.cpp.o"
-  "CMakeFiles/Zamhareer.dir/src/Camera.cpp.o.d"
+  "CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o"
+  "CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o.d"
   "CMakeFiles/Zamhareer.dir/src/Color.cpp.o"
   "CMakeFiles/Zamhareer.dir/src/Color.cpp.o.d"
   "CMakeFiles/Zamhareer.dir/src/Engine.cpp.o"

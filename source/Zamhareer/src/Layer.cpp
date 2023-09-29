@@ -27,7 +27,7 @@ namespace ZM {
 	}
 	void LayerStack::OnEvent(Event &e)
 	{
-		for(int i = m_Layers.Length()-1; i>0 ;i--){
+		for(int i = m_Layers.Length()-1; i>=0 ;i--){
 			m_Layers[i]->OnEvent(e);
 		}
 	}

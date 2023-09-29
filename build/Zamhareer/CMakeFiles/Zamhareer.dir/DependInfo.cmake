@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/omar/Projects/Zamhareer/source/Zamhareer/src/Camera.cpp" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.o" "gcc" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.o.d"
+  "/home/omar/Projects/Zamhareer/source/Zamhareer/src/Camera2D.cpp" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o" "gcc" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o.d"
   "/home/omar/Projects/Zamhareer/source/Zamhareer/src/Color.cpp" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Color.cpp.o" "gcc" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Color.cpp.o.d"
   "/home/omar/Projects/Zamhareer/source/Zamhareer/src/Engine.cpp" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Engine.cpp.o" "gcc" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Engine.cpp.o.d"
   "/home/omar/Projects/Zamhareer/source/Zamhareer/src/Image.cpp" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Image.cpp.o" "gcc" "Zamhareer/CMakeFiles/Zamhareer.dir/src/Image.cpp.o.d"

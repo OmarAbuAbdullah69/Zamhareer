@@ -1,8 +1,8 @@
-#include "ZM/Camera.h"
+#include "ZM/Camera2D.h"
 
 namespace ZM
 {
-	Camera2D::Camera2D(const char *name, Node *parent, float l ,float r, float b, float t)
+	Camera2D::Camera2D(const char *name, Node2D *parent, float l ,float r, float b, float t)
 		:Node2D(name, parent), left(l), right(r), bottom(b), top(t)
 	{
 		
@@ -21,6 +21,6 @@ namespace ZM
 	}
 	glm::mat4 Camera2D::GetView()
 	{
-		return glm::ortho(left, right, bottom, top, nearPlane, farPlane);
+		return glm::inverse(GetTransform()) * glm::ortho(left, right, bottom, top, nearPlane, farPlane);
 	}
 }

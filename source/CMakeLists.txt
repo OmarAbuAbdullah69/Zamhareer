@@ -4,6 +4,7 @@ project(Game)
 
 message(STATUS "Building the app")
 
+
 file(GLOB_RECURSE Header_filse ${PROJECT_SOURCE_DIR}/Game/include/*.h)
 file(GLOB_RECURSE Source_files ${PROJECT_SOURCE_DIR}/Game/src/*.cpp)
 

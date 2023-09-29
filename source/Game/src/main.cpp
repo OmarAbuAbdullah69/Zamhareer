@@ -26,7 +26,6 @@ int main()
 	};
 	en.SetRenderer<ZM::OGL3_Renderer>(s);
 	en.PushBackLayer<LayerA>("layer A");
-	en.PushBackLayer<LayerB>("layer B");
 	en.SetViewPort(&win);
 	en.Init();
 	while (!en.ShouldClose()) {

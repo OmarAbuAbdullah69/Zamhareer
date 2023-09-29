@@ -69,19 +69,19 @@ include Zamhareer/CMakeFiles/Zamhareer.dir/progress.make
 # Include the compile flags for this target's objects.
 include Zamhareer/CMakeFiles/Zamhareer.dir/flags.make
 
-Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.o: Zamhareer/CMakeFiles/Zamhareer.dir/flags.make
-Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.o: /home/omar/Projects/Zamhareer/source/Zamhareer/src/Camera.cpp
-Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.o: Zamhareer/CMakeFiles/Zamhareer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.o"
-	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.o -MF CMakeFiles/Zamhareer.dir/src/Camera.cpp.o.d -o CMakeFiles/Zamhareer.dir/src/Camera.cpp.o -c /home/omar/Projects/Zamhareer/source/Zamhareer/src/Camera.cpp
+Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o: Zamhareer/CMakeFiles/Zamhareer.dir/flags.make
+Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o: /home/omar/Projects/Zamhareer/source/Zamhareer/src/Camera2D.cpp
+Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o: Zamhareer/CMakeFiles/Zamhareer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/omar/Projects/Zamhareer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o"
+	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o -MF CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o.d -o CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o -c /home/omar/Projects/Zamhareer/source/Zamhareer/src/Camera2D.cpp
 
-Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Zamhareer.dir/src/Camera.cpp.i"
-	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/omar/Projects/Zamhareer/source/Zamhareer/src/Camera.cpp > CMakeFiles/Zamhareer.dir/src/Camera.cpp.i
+Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.i"
+	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/omar/Projects/Zamhareer/source/Zamhareer/src/Camera2D.cpp > CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.i
 
-Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Zamhareer.dir/src/Camera.cpp.s"
-	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/omar/Projects/Zamhareer/source/Zamhareer/src/Camera.cpp -o CMakeFiles/Zamhareer.dir/src/Camera.cpp.s
+Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.s"
+	cd /home/omar/Projects/Zamhareer/build/Zamhareer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/omar/Projects/Zamhareer/source/Zamhareer/src/Camera2D.cpp -o CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.s
 
 Zamhareer/CMakeFiles/Zamhareer.dir/src/Color.cpp.o: Zamhareer/CMakeFiles/Zamhareer.dir/flags.make
 Zamhareer/CMakeFiles/Zamhareer.dir/src/Color.cpp.o: /home/omar/Projects/Zamhareer/source/Zamhareer/src/Color.cpp
@@ -211,7 +211,7 @@ Zamhareer/CMakeFiles/Zamhareer.dir/src/oaa_Timer.cpp.s: cmake_force
 
 # Object files for target Zamhareer
 Zamhareer_OBJECTS = \
-"CMakeFiles/Zamhareer.dir/src/Camera.cpp.o" \
+"CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o" \
 "CMakeFiles/Zamhareer.dir/src/Color.cpp.o" \
 "CMakeFiles/Zamhareer.dir/src/Engine.cpp.o" \
 "CMakeFiles/Zamhareer.dir/src/Image.cpp.o" \
@@ -225,7 +225,7 @@ Zamhareer_OBJECTS = \
 # External object files for target Zamhareer
 Zamhareer_EXTERNAL_OBJECTS =
 
-Zamhareer/libZamhareer.a: Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.o
+Zamhareer/libZamhareer.a: Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o
 Zamhareer/libZamhareer.a: Zamhareer/CMakeFiles/Zamhareer.dir/src/Color.cpp.o
 Zamhareer/libZamhareer.a: Zamhareer/CMakeFiles/Zamhareer.dir/src/Engine.cpp.o
 Zamhareer/libZamhareer.a: Zamhareer/CMakeFiles/Zamhareer.dir/src/Image.cpp.o

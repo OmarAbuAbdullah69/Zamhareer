@@ -19,15 +19,15 @@ void main()
 {
 	
 	vec4 Pos = iPos;
-	Pos *= Transform * ViewProjection;
+	Pos = Transform * ViewProjection * Pos;
 	//fixing the strexh
-	// vec2 ratio= ViewportSize/max(ViewportSize.x, ViewportSize.y);
-	// Pos.x *= ratio.y;
-	// Pos.y *= ratio.x;
+	vec2 ratio= ViewportSize/max(ViewportSize.x, ViewportSize.y);
+	Pos.x *= ratio.y;
+	Pos.y *= ratio.x;
 	
 	gl_Position = Pos;
 
-	vNorm = iNorm;
+	vNorm = vec3(Transform[3]);
 	Reslotion = ViewportSize;
 	vUV = iUV;
 }

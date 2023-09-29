@@ -175,29 +175,29 @@ Zamhareer/fast:
 	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/build
 .PHONY : Zamhareer/fast
 
-src/Camera.o: src/Camera.cpp.o
-.PHONY : src/Camera.o
+src/Camera2D.o: src/Camera2D.cpp.o
+.PHONY : src/Camera2D.o
 
 # target to build an object file
-src/Camera.cpp.o:
-	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.o
-.PHONY : src/Camera.cpp.o
+src/Camera2D.cpp.o:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o
+.PHONY : src/Camera2D.cpp.o
 
-src/Camera.i: src/Camera.cpp.i
-.PHONY : src/Camera.i
+src/Camera2D.i: src/Camera2D.cpp.i
+.PHONY : src/Camera2D.i
 
 # target to preprocess a source file
-src/Camera.cpp.i:
-	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.i
-.PHONY : src/Camera.cpp.i
+src/Camera2D.cpp.i:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.i
+.PHONY : src/Camera2D.cpp.i
 
-src/Camera.s: src/Camera.cpp.s
-.PHONY : src/Camera.s
+src/Camera2D.s: src/Camera2D.cpp.s
+.PHONY : src/Camera2D.s
 
 # target to generate assembly for a file
-src/Camera.cpp.s:
-	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera.cpp.s
-.PHONY : src/Camera.cpp.s
+src/Camera2D.cpp.s:
+	cd /home/omar/Projects/Zamhareer/build && $(MAKE) $(MAKESILENT) -f Zamhareer/CMakeFiles/Zamhareer.dir/build.make Zamhareer/CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.s
+.PHONY : src/Camera2D.cpp.s
 
 src/Color.o: src/Color.cpp.o
 .PHONY : src/Color.o
@@ -428,9 +428,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... Zamhareer"
-	@echo "... src/Camera.o"
-	@echo "... src/Camera.i"
-	@echo "... src/Camera.s"
+	@echo "... src/Camera2D.o"
+	@echo "... src/Camera2D.i"
+	@echo "... src/Camera2D.s"
 	@echo "... src/Color.o"
 	@echo "... src/Color.i"
 	@echo "... src/Color.s"

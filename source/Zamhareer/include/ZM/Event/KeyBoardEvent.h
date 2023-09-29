@@ -1,14 +1,16 @@
 #pragma once
 
 #include "Event.h"
+#include "ZM/KeyCode.h"
 
 namespace ZM {
 	class KeyEvent: public Event
 	{
+		public:
+			inline int GetKeyCode() const {return m_KeyCode;}
 		protected:
 			KeyEvent(int code)
 				:m_KeyCode(code){}
-			inline int GetKeyCode() const {return m_KeyCode;}
 		private:
 			int m_KeyCode;
 	};
