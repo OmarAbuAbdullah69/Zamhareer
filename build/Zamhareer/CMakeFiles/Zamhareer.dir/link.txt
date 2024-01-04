@@ -1,2 +1,0 @@
-/usr/bin/ar qc libZamhareer.a CMakeFiles/Zamhareer.dir/src/Camera2D.cpp.o CMakeFiles/Zamhareer.dir/src/Color.cpp.o CMakeFiles/Zamhareer.dir/src/Engine.cpp.o CMakeFiles/Zamhareer.dir/src/Image.cpp.o CMakeFiles/Zamhareer.dir/src/Layer.cpp.o CMakeFiles/Zamhareer.dir/src/Node.cpp.o CMakeFiles/Zamhareer.dir/src/Renderer/Opengl3_Renderer.cpp.o CMakeFiles/Zamhareer.dir/src/Window/glfw_impl.cpp.o CMakeFiles/Zamhareer.dir/src/oaa_String.cpp.o CMakeFiles/Zamhareer.dir/src/oaa_Timer.cpp.o
-/usr/bin/ranlib libZamhareer.a
