@@ -30,7 +30,6 @@ add_subdirectory("./vendor/glad")
 target_link_libraries(${PROJECT_NAME} glad)
 
 #adding glfw
-
 add_subdirectory("./vendor/glfw")
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)

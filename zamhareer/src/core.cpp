@@ -9,22 +9,25 @@ namespace zm {
 		return window::s_creat_window(name, width, height, parent_window);
 	}
 	void core::update_window(window_id w) {
-		if(w) {
-			for(window win : window::s_windows) {
+		if(!w) {
+			for(window &win : window::s_windows) {
 				win.update();
 			}
 		} else {
-			window::s_windows[w-1].update();
+			window::s_windows.at(w-1).update();
 		}
 	}
 	void core::close_window(window_id w) {
-		if(w) {
-			for(window win : window::s_windows) {
+		if(!w) {
+			for(window &win : window::s_windows) {
 				win.close();
 			}
 		} else {
-			window::s_windows[w-1].update();
+			window::s_windows.at(w-1).update();
 		}
+	}
+	bool core::is_window_closed(window_id w) {
+		return !window::s_windows.at(w-1).m_opened;
 	}
 #endif
 
