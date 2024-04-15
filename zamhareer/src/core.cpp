@@ -29,6 +29,29 @@ namespace zm {
 	bool core::is_window_closed(window_id w) {
 		return !window::s_windows.at(w-1).m_opened;
 	}
+	
+	void core::set_window_size(window_id w, unsigned width, unsigned height) {
+		if(!w)
+			throw std::runtime_error("invaled window_id\n");
+		window::s_windows.at(w-1).set_size(width, height);
+	}
+	void core::get_window_size(window_id w, unsigned &width, unsigned &height) {
+		if(!w)
+			throw std::runtime_error("invaled window_id\n");
+		window::s_windows.at(w-1).get_size(width, height);
+	}
+
+	void core::set_window_pos(window_id w, unsigned posx, unsigned posy) {
+		if(!w)
+			throw std::runtime_error("invaled window_id\n");
+		window::s_windows.at(w-1).set_pos(posx, posy);
+	}
+	void core::get_window_pos(window_id w, unsigned &posx, unsigned &posy) {
+		if(!w)
+			throw std::runtime_error("invaled window_id\n");
+		window::s_windows.at(w-1).get_pos(posx, posy);
+	}
+
 #endif
 
 }

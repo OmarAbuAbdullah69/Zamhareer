@@ -15,6 +15,12 @@ namespace zm {
 	  void update_window(window_id w=0);
 	  void close_window(window_id w=0);
 	  bool is_window_closed(window_id);
+
+	  void set_window_size(window_id w, unsigned width, unsigned height);
+	  void get_window_size(window_id w, unsigned &width, unsigned &height);
+
+	  void set_window_pos(window_id w, unsigned posx, unsigned posy);
+	  void get_window_pos(window_id w, unsigned &posx, unsigned &posy);
 #endif
   };
 }
