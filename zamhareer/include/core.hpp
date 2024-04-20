@@ -1,7 +1,7 @@
 #pragma once
 
 #include "windowing.hpp"
-
+#include "event/event.hpp"
 
 namespace zm {
   class core {
@@ -22,5 +22,10 @@ namespace zm {
 	  void set_window_pos(window_id w, unsigned posx, unsigned posy);
 	  void get_window_pos(window_id w, unsigned &posx, unsigned &posy);
 #endif
+	  void attach_event(
+#ifdef WINDOWED 
+			  window_id w,
+#endif
+			  void (*event_callback)(const event &));
   };
 }

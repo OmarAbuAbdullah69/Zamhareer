@@ -2,8 +2,6 @@
 
 namespace zm {
 
-	std::vector<window> window::s_windows;
-
 #ifdef WINDOWED
 	window_id core::creat_window(const char * name, unsigned width, unsigned height, window_id parent_window) {
 		return window::s_creat_window(name, width, height, parent_window);
@@ -54,4 +52,11 @@ namespace zm {
 
 #endif
 
+void core::attach_event(
+#ifdef WINDOWED 
+			  window_id w,
+#endif
+			  void (*event_callback)(const event &)) {
+		window::s_windows.at(w-1).set_event_callback(event_callback);
+  	}
 }
