@@ -1,0 +1,8 @@
+
+
+
+option('build_mode', type: 'string', value: 'debug', description: 'build mode defines the bulding state out of (debug, release)')
+option('rend_api', type: 'string', value: 'opengl', description: 'build mode defines the rendering api (opengl)')
+option('platform', type: 'string', value: 'linux', description: 'build mode defines the platform the the app will work on')
+
+
