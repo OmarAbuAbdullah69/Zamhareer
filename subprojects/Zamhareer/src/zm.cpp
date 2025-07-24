@@ -1,20 +1,21 @@
 #include "zm/zm.hpp"
-#include <iostream>
 namespace zm {
 	engine::engine() {
-		std::cout << "engine was created\n";
 	}
 	engine::~engine() {
-
+		if(mViewport) {
+			delete mViewport;
+		}
 	}
 	void engine::init() {
-		std::cout << "engine was init\n";
+		mViewport = new viewport(mSettings.title.c_str(),
+				mSettings.viewportWidth,
+				mSettings.viewportHeight);
 	}
 	void engine::update() {
-
 	}
 	void engine::render() {
-
+		mViewport->update();
 	}
 	bool engine::isRuning() {
 		return mRuning;

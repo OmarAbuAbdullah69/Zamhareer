@@ -2,14 +2,17 @@
 
 #include "zm/zm.hpp"
 #include <iostream>
+#include <GLFW/glfw3.h>
 class app: public zm::engine {
 	public:
 		app() {
-			std::cout << "app was created\n";
+			mSettings.title = "test title";
+			mRuning = true;
+		}
+		~app() {
 		}
 		void init() override {
 			zm::engine::init();
-			std::cout << "app init\n";
 			
 		}
 		void update() override {
@@ -18,4 +21,5 @@ class app: public zm::engine {
 		void render() override {
 			zm::engine::render();
 		}
+	private:
 };
