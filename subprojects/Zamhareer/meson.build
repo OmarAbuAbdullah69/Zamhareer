@@ -20,8 +20,6 @@ endif
 
 message('====== rendering api is ' + rend_api + ' ======')
 if rend_api == 'opengl'
-  add_project_arguments('-DAPI_GL', language: 'cpp')
-  deps += dependency('gl', required: true)
 endif
 
 message('====== platform is ' + platform + ' ======')

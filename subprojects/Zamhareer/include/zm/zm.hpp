@@ -1,48 +1,46 @@
 #pragma once
 
 #include "zm/viewport/viewport.hpp"
-#define ZM_MAIN(APP) \
-	int main (int argc, char *argv[]) {\
-		APP a;\
-		a.init();\
-		while(a.isRuning()) {\
-			a.update();\
-			a.render();\
-		}\
-		return 0;\
-	}
+#define ZM_MAIN(APP)                                                           \
+  int main(int argc, char *argv[]) {                                           \
+    APP a;                                                                     \
+    a.init();                                                                  \
+    while (a.isRuning()) {                                                     \
+      a.update();                                                              \
+      a.render();                                                              \
+    }                                                                          \
+    return 0;                                                                  \
+  }
 
 namespace zm {
 
-	struct settings {
-		std::string title;
-		int viewportWidth = 640;
-		int viewportHeight = 480;
-	};
+struct settings {
+  std::string title;
+  int viewportWidth = 640;
+  int viewportHeight = 480;
+};
 
-	class engine {
+class engine {
 
-		protected:
-			engine();
-			settings mSettings;
+protected:
+  engine();
+  settings mSettings;
 
-		public:
-			~engine();
-			static engine &instance() {
-				return *sInstance;
-			}
+public:
+  ~engine();
+  static engine &instance() { return *sInstance; }
 
-			virtual void init();
-			virtual void update();
-			virtual void render();
-			
-			bool isRuning();
+  virtual void init();
+  virtual void update();
+  virtual void render();
 
-		protected:
-			bool mRuning=false;
+  bool isRuning();
 
-		private:
-			static engine *sInstance;
-			viewport *mViewport;
-	};
-}
+protected:
+  bool mRuning = false;
+
+private:
+  static engine *sInstance;
+  viewport *mViewport;
+};
+} // namespace zm

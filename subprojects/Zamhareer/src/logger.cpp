@@ -1,8 +1,5 @@
 #define ZMPRINTER_IMPL
 #include "zm/logger.hpp"
 namespace zm {
-	logger::logger()
-		:mPrinter("{%t} {%m}") {
-
-		}
-}
+logger::logger() : mPrinter("{%t} {%m}") {}
+} // namespace zm
