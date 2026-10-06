@@ -7,6 +7,7 @@
 #include <memory>
 #include <sstream>
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace zm {
@@ -55,8 +56,8 @@ private:
   std::string tmpl;
   std::stringstream output;
   std::stringstream converter;
-  std::array<std::string, 9> argBuffer;
-  int argIndex = 0;
+  std::array<std::string, 10> argBuffer; // one per digit placeholder {%0}..{%9}
+  std::size_t argIndex = 0;
   std::vector<std::unique_ptr<templateToken>> tokens;
 
   void parseTemplate(const std::string& source);
@@ -79,7 +80,7 @@ private:
   static bool matchKey(const char* str, unsigned i, char& key, unsigned& next) {
     constexpr unsigned keySize = 4;
     next = i + keySize;
-    if (str[i] != '{' || str[i + 1] != '%' || str[i + 3] != '}') return false;
+    if (str[i] != '{' || str[i + 1] != '%' || str[i + 2] == '\0' || str[i + 3] != '}') return false;
     key = str[i + 2];
     return true;
   }
@@ -139,10 +140,11 @@ void printer::render(const char* dynamicStr) {
   for (const auto& token : tokens) {
     token->render(output, *this, dynamicStr);
   }
-  std::cout << output.str();
+  std::cout << output.str() << std::flush;
   output.str("");
   output.clear();
-	argIndex = 0;
+  argBuffer.fill(std::string());
+  argIndex = 0;
 }
 //======parsingPlaceholders=========
 std::string printer::parsePlaceholders(const char* str) const {
@@ -161,7 +163,7 @@ std::string printer::parsePlaceholders(const char* str) const {
       continue;
     }
 
-    if (std::isdigit(key)) {
+    if (std::isdigit(static_cast<unsigned char>(key))) {
       result << std::string_view(&str[segmentStart], i - segmentStart);
       result << argBuffer[key - '0'];
       segmentStart = next;

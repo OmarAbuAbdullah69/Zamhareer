@@ -1,6 +1,7 @@
 #pragma once
 
 #include "zm/viewport/viewport.hpp"
+#include <string>
 #define ZM_MAIN(APP)                                                           \
   int main(int argc, char *argv[]) {                                           \
     APP a;                                                                     \
@@ -27,7 +28,9 @@ protected:
   settings mSettings;
 
 public:
-  ~engine();
+  virtual ~engine();
+  engine(const engine &) = delete;
+  engine &operator=(const engine &) = delete;
   static engine &instance() { return *sInstance; }
 
   virtual void init();
@@ -41,6 +44,6 @@ protected:
 
 private:
   static engine *sInstance;
-  viewport *mViewport;
+  viewport *mViewport = nullptr;
 };
 } // namespace zm

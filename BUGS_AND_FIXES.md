@@ -1,27 +1,30 @@
 # Bugs and fixes
 
-Debug pass on commit `8b7c98b` ("at this point U should see a blank window").
-Built with meson 1.10.1, g++ 15.2, GLFW 3.4, on Ubuntu (Wayland session).
+Debug passes starting from commit `8b7c98b` ("at this point U should see a
+blank window"). Built with meson 1.10.1, g++ 15.2, GLFW 3.4, on Ubuntu (Wayland
+session).
 
-Each entry says whether it was **fixed**, **reproduced** (actually ran and
-observed, not fixed yet) or **read** (found by reading the code, not triggered).
+**All 23 bugs below are fixed.** "How found" says whether a bug was
+**reproduced** (ran it and saw it fail) or **read** (found by reading the code).
 
-## Fixes applied
+## How it was verified
 
-| Bug | Change | Files |
-|-----|--------|-------|
-| #1 glitchy window | Clear the back buffer once at window creation and after every `glfwSwapBuffers`; link `gl` | `src/viewport/window.cpp`, `meson.build` |
-| #2 close button | `window::shouldClose()` → `viewport::shouldClose()` → `engine::render()` sets `mRuning = false` | `window.hpp`, `viewport.hpp`, `viewport.cpp`, `src/zm.cpp` |
+- Clean builds of all three configs: debug, release
+  (`-DZamhareer:build_mode=release`) and android (`-DZamhareer:platform=android`,
+  no GLFW). All build with **0 warnings**.
+- `meson test -C build` runs `subprojects/Zamhareer/tests/test_zm.cpp`, which
+  checks the printer, engine cleanup and `instance()`. It passes in every config
+  and also passes under AddressSanitizer, UBSan and libstdc++ bounds checks.
+- Display checks: the frame shown is 1 clean colour (was 265 junk colours),
+  the loop stops 1 frame after a close request, and clicking X closes the app
+  (checked by hand).
 
-Verified: the frame shown went from 265 junk colours to 1. The loop stops one
-frame after a close request, and clicking X closes the app.
+## Summary
 
-## Bugs
-
-| # | Severity | Bug | Status |
-|---|----------|-----|--------|
-| 1 | High | Window shows garbage / looks glitchy | **fixed** |
-| 2 | High | Closing the window doesn't stop the app | **fixed** |
+| # | Severity | Bug | How found |
+|---|----------|-----|-----------|
+| 1 | High | Window shows garbage / looks glitchy | reproduced |
+| 2 | High | Closing the window doesn't stop the app | reproduced |
 | 3 | High | Release build doesn't configure (`elif` with no condition) | reproduced |
 | 4 | Medium | `-o3` instead of `-O3` in release flags | read |
 | 5 | Medium | Deleting an engine that never ran `init()` segfaults | reproduced |
@@ -30,146 +33,181 @@ frame after a close request, and clicking X closes the app.
 | 8 | Medium | `glfwInit()` failure is logged but ignored | read |
 | 9 | Medium | `#ifdef WINDOWING` is always true | read |
 | 10 | Low | Log output is lost when stdout is not a terminal | reproduced |
-| 11 | Low | `engine` destructor is not virtual | read |
-| 12 | Low | `{%9}` placeholder reads past the end of `argBuffer` | read |
+| 11 | Low | `engine` destructor is not virtual | reproduced (static_assert) |
+| 12 | Low | `{%9}` placeholder reads past the end of `argBuffer` | reproduced |
 | 13 | Low | `matchKey` can read past the end of the string | read |
+| 14 | High | App code and engine code disagree on `WINDOWING` | read |
+| 15 | Medium | GLFW/GL headers not passed on to code that uses the engine | read |
+| 16 | Medium | `engine` can be copied, so its viewport gets deleted twice | reproduced (static_assert) |
+| 17 | Medium | `glfwTerminate()` called by `window` instead of `viewport`, which calls `glfwInit()` | read |
+| 18 | Low | `window` setters don't change the real window | read |
+| 19 | Low | Printer reuses arguments left over from the previous log call | read |
+| 20 | Medium | C++17 is required but never requested | read |
+| 21 | Low | Build options accept any string, so typos silently misconfigure | read |
+| 22 | Low | `-Wsign-compare` warnings in the printer | reproduced |
+| 23 | Low | `app.hpp` includes GLFW without using it | read |
 
 ---
 
+## Details
+
 ### 1. Window shows garbage / looks glitchy
-**Where:** `src/zm.cpp` `engine::render()` and `src/viewport/window.cpp` `window::update()`
+The loop swapped buffers every frame but never drew to or cleared the back
+buffer, so the GPU showed leftover memory. A 200x200 window's frame had **265
+distinct colours**.
 
-The loop calls `glfwSwapBuffers` every frame, but nothing ever draws to or
-clears the back buffer, so the GPU shows whatever leftover memory is in it.
-That is why the window flickers with junk instead of being blank.
-
-**Evidence:** reading the never-cleared back buffer of a 200x200 window gave
-**265 distinct colours**. After one `glClear` it was **1**.
-
-**Fixed:** `window` clears once when the context is made, and again right
-after every `glfwSwapBuffers` (the back buffer is undefined after a swap), so
-each frame starts clean. Clearing *after* the swap rather than before means
+**Fix:** `window` clears once when the GL context is made and again right
+after every `glfwSwapBuffers`. Clearing after the swap rather than before means
 anything `app::render()` draws before calling `engine::render()` isn't wiped.
-Retest: 1 distinct colour.
-Added `dependency('gl')` to meson for `glClear`. Still worth considering: setting
-`glfwSwapInterval(1)` after `glfwMakeContextCurrent` so the frame rate is
-capped explicitly. The app also asks for a 20x20 window (`app.hpp`), which
-some compositors resize without the engine noticing, because there is no
-framebuffer-size callback.
+Added `dependency('gl')` for `glClear`.
 
 ### 2. Closing the window doesn't stop the app
-**Where:** `src/zm.cpp`. Nothing checks `glfwWindowShouldClose`.
+Nothing checked `glfwWindowShouldClose`, so `mRuning` never became `false`. The
+loop was still running 200 frames after a close request.
 
-`mRuning` is set to `true` in `app()` and never becomes `false`, so clicking X
-does nothing and the `while (a.isRuning())` loop in `ZM_MAIN` runs forever.
-
-**Evidence:** called `glfwSetWindowShouldClose(window, true)` and ran the loop:
-it was still running after 200 frames.
-
-**Fixed:** `window::shouldClose()` → `viewport::shouldClose()` →
-`engine::render()` sets `mRuning = false` after polling events. Retest: the
-loop stops 1 frame after the close request.
+**Fix:** `window::shouldClose()` → `viewport::shouldClose()`. After polling
+events, `engine::render()` sets `mRuning = false`.
 
 ### 3. Release build doesn't configure
-**Where:** `subprojects/Zamhareer/meson.build:17`
-```meson
-elif
-  add_project_arguments('-DREL_BUILD', '-o3', language: 'cpp')
-```
-`elif` has no condition. In debug mode meson never reaches it, which is why
-the bug stayed hidden.
-
-**Evidence:** `meson setup build-rel -DZamhareer:build_mode=release` gives
-`meson.build:17:4: ERROR: Unknown statement.`
+`meson.build:17` had `elif` with no condition:
+`meson.build:17:4: ERROR: Unknown statement.` It was hidden because debug mode
+never reaches that line.
 
 **Fix:** `elif` → `else`.
 
 ### 4. `-o3` instead of `-O3`
-**Where:** same line as #3. Lowercase `-o3` means "write the output to a file
-named `3`", not "optimise". It should be `-O3`. Better still, drop the manual
-`-g`/`-O3` flags and use meson's built-in `buildtype` (meson already warns
-about `-g`).
+Lowercase `-o3` means "write the output to a file named `3`".
+
+**Fix:** `-O3`. Confirmed in `build-rel/compile_commands.json`.
 
 ### 5. Deleting an engine that never ran `init()` segfaults
-**Where:** `include/zm/zm.hpp`, `viewport *mViewport;` (never initialised)
+`viewport *mViewport;` was never initialised, so `~engine()` deleted a garbage
+address (segfault, exit 139).
 
-`~engine()` checks `if (mViewport)`, but the pointer holds garbage unless
-`init()` ran, so it deletes a random address.
-
-**Evidence:** constructing and destroying an engine without `init()` →
-`Segmentation fault`, exit 139.
-
-**Fix:** `viewport *mViewport = nullptr;`
+**Fix:** `viewport *mViewport = nullptr;`. Covered by the test.
 
 ### 6. `engine::instance()` fails to link
-**Where:** `include/zm/zm.hpp`. `static engine *sInstance;` is declared but
-never defined, and nothing assigns it.
-
-**Evidence:** calling `zm::engine::instance()` →
+`sInstance` was declared but never defined or assigned:
 `undefined reference to 'zm::engine::sInstance'`.
 
-**Fix:** define it in `zm.cpp` (`engine *engine::sInstance = nullptr;`), set
-`sInstance = this;` in the constructor, or delete it until it's needed.
+**Fix:** defined in `zm.cpp`. The constructor sets it to `this`, and the
+destructor clears it. Covered by the test.
 
 ### 7. Any GLFW error kills the app
-**Where:** `src/viewport/window.cpp:7-10`. The error callback calls `exit(1)`.
+The error callback called `exit(1)`, so even non-fatal GLFW errors (e.g.
+Wayland refusing to move a window) ended the program. It was also installed
+after `glfwInit()`, so init errors weren't reported.
 
-GLFW reports many non-fatal errors this way (for example, Wayland refuses to
-let windows set their own position), and each one would end the program
-without running destructors. The old commit message about window pos/size
-problems may be this.
-
-**Fix:** log in the callback and don't exit. Treat errors as fatal only where a
-call actually fails (e.g. the `!mHandle` check already there). Also set the
-callback **before** `glfwInit()` (it's currently set after), so init errors are
-reported too.
+**Fix:** the callback only logs, and it now lives in `viewport` and is
+installed before `glfwInit()`. Real failures (`glfwInit`, window creation)
+still exit.
 
 ### 8. `glfwInit()` failure is ignored
-**Where:** `src/viewport/viewport.cpp:7-9`. On failure it logs and then goes
-on to create a window anyway. It should stop there (return or exit).
+It logged and then went on to create a window anyway.
+
+**Fix:** it now logs and exits.
 
 ### 9. `#ifdef WINDOWING` is always true
-**Where:** `viewport.hpp`, `viewport.cpp`
+meson defines `WINDOWING` as `0` or `1`, so `#ifdef` was always true.
 
-meson defines `WINDOWING=1` or `WINDOWING=0`, and `#ifdef` only checks whether
-the macro exists, so the Android build (`WINDOWING=0`) still compiles the GLFW
-code. Use `#if WINDOWING`. `viewport::update()` also uses `mWindow` outside
-the guard, so it will break once the guard works.
+**Fix:** `#if WINDOWING` everywhere. `viewport`'s constructor, `update()` and
+`shouldClose()` now exist in both modes, with stubs when there's no windowing,
+and all of `window.cpp` is inside `#if WINDOWING`. A missing `WINDOWING` is a
+compile error (`#error`) instead of silently meaning 0. The android config now
+builds without GLFW.
 
 ### 10. Log output is lost when not on a terminal
-**Where:** `include/zm/external/zmprinter.hpp`, `printer::render()`
+`printer::render()` didn't flush `std::cout`, so piped or redirected output
+was lost when the app was killed.
 
-It writes to `std::cout` without flushing. On a terminal you see lines,
-but piped or redirected (IDE console, `./app > log.txt`) they stay in the
-buffer and are lost if the app is killed.
-
-**Evidence:** `timeout 3 ./build/app` printed nothing. The same command under a
-pseudo-terminal printed the `INFO` line.
-
-**Fix:** `std::cout << output.str() << std::flush;` (or use `std::cerr` for
-errors).
+**Fix:** `<< std::flush`. `./build/app > log.txt` now contains the `INFO` line.
 
 ### 11. `engine` destructor is not virtual
-**Where:** `include/zm/zm.hpp`, `~engine();`
-
-`engine` has virtual methods and is meant to be subclassed. Deleting an `app`
-through an `engine*` would skip `~app()`. Make it `virtual ~engine();`.
+**Fix:** `virtual ~engine();`. Checked by a `static_assert` in the test.
 
 ### 12. `{%9}` reads out of bounds
-**Where:** `zmprinter.hpp`, `parsePlaceholders`. `argBuffer` has 9 slots
-(0–8), but any digit is accepted, so `{%9}` reads `argBuffer[9]`. Check
-`key - '0' < argBuffer.size()`.
+`argBuffer` had 9 slots but all 10 digits were accepted. The libstdc++ bounds
+check aborted on `{%9}`.
+
+**Fix:** `argBuffer` has 10 slots, one per digit. `isdigit` gets an
+`unsigned char`. Covered by the test.
 
 ### 13. `matchKey` can read past the end of the string
-**Where:** `zmprinter.hpp`, `matchKey`. It reads `str[i + 3]` before checking
-that `str[i + 2]` isn't the terminator, so a message ending in `{%` reads one
-byte past the end. Check `str[i + 2] != '\0'` first.
+For a message ending in `{%`, it read `str[i + 3]`, one byte past the
+terminator.
+
+**Fix:** check `str[i + 2] != '\0'` first. Covered by the test, which passes
+under AddressSanitizer.
+
+### 14. App code and engine code disagree on `WINDOWING`
+`-DWINDOWING` was only added while compiling the engine library. `app.hpp`
+includes the same headers without it, so the app saw a different `viewport`
+class than the library (a One Definition Rule violation, which is undefined
+behaviour).
+
+**Fix:** `zmlib_dep` passes the same `WINDOWING` value to everything that
+uses it.
+
+### 15. GLFW/GL headers not passed on
+`zmlib_dep` didn't carry the GLFW/GL dependencies, so code using the engine
+only compiled when GLFW happened to be installed system-wide (not the case on
+Windows, for example).
+
+**Fix:** `dependencies: deps` in `zmlib_dep`.
+
+### 16. `engine` can be copied
+The compiler-generated copy shares the raw `mViewport` pointer, so both copies
+would delete it.
+
+**Fix:** copy constructor and copy assignment are deleted. Checked by a
+`static_assert`.
+
+### 17. `glfwTerminate()` in the wrong place
+`viewport` calls `glfwInit()`, but `~window()` called `glfwTerminate()`. That
+would end GLFW for every window as soon as any one window was destroyed.
+
+**Fix:** `~viewport()` terminates GLFW after deleting its window.
+
+### 18. `window` setters don't change the real window
+`setTitle`/`setWidth`/`setheight` only updated the member variables.
+
+**Fix:** they call `glfwSetWindowTitle` / `glfwSetWindowSize`. `setheight` was
+renamed to `setHeight` to match the others.
+
+### 19. Printer reuses old arguments
+`argBuffer` wasn't cleared between calls, so `{%1}` in a call with one argument
+printed the previous call's second argument.
+
+**Fix:** the buffer is cleared after each print. Covered by the test.
+
+### 20. C++17 never requested
+The printer uses `std::string_view`, but neither `project()` set `cpp_std`.
+Compilers that default to C++14 (MSVC, older clang) would fail.
+
+**Fix:** `default_options: ['cpp_std=c++17']` in both `project()` calls, plus
+an explicit `#include <string_view>`.
+
+### 21. Build options accept any string
+`build_mode=Release` (capital R) silently fell through to release flags, and
+an unknown platform left out every `PLAT_*` define.
+
+**Fix:** the options are `combo` types with fixed choices, and meson rejects
+typos.
+
+### 22. `-Wsign-compare` warnings
+`int argIndex` was compared against `argBuffer.size()`.
+
+**Fix:** `std::size_t argIndex`.
+
+### 23. Unused GLFW include in `app.hpp`
+**Fix:** removed. The app only needs `zm/zm.hpp`.
 
 ---
 
-### Housekeeping (not bugs)
-- No `.gitignore`. `build/` and `.cache/clangd/` show up in `git status`, and
-  clangd index files were committed earlier. Suggest ignoring `build*/` and
-  `.cache/`.
-- `meson.build` finds sources with `run_command('find', ...)`, so new files
-  aren't picked up until meson reconfigures. List them explicitly instead.
+### Housekeeping
+- Added `.gitignore` for `build*/` and `.cache/`.
+- Still open, not bugs:
+  - `meson.build` finds sources with `run_command('find', ...)`, so new files
+    need a reconfigure.
+  - meson warns that `-g` should be the built-in `debug` option.
+  - The app asks for a 20x20 window.

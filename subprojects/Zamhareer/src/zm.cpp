@@ -1,8 +1,12 @@
 #include "zm/zm.hpp"
 namespace zm {
+	engine *engine::sInstance = nullptr;
 	engine::engine() {
+		sInstance = this;
 	}
 	engine::~engine() {
+		if (sInstance == this)
+			sInstance = nullptr;
 		if(mViewport) {
 			delete mViewport;
 		}

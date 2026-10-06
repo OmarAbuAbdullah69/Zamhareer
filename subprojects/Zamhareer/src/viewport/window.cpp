@@ -1,17 +1,14 @@
-#include "zm/viewport/window.hpp"
+#include "zm/viewport/viewport.hpp"
+#if WINDOWING
 #include "zm/logger.hpp"
-#include <GLFW/glfw3.h>
+#include <cstdlib>
 namespace zm {
 	window::window(const char *title, int width, int height) 
 		:mTitle(title), mWidth(width), mHeight(height){
-		glfwSetErrorCallback([](int code, const char *desc) {
-					logger::inst().logError("glfwError code : {%0}\n{%1}", code, desc);
-			exit(1);
-				});
 		mHandle = glfwCreateWindow(mWidth, mHeight, mTitle.c_str(), nullptr, nullptr);
 		if(!mHandle) {
 			logger::inst().logError("couldn't make a Glfw window with name = {%0}, width = {%1}, height = {%2}", mTitle, mWidth, mHeight);
-			exit(1);
+			std::exit(1);
 		}
 		logger::inst().logInfo("a Glfw window was made with name = {%0}, width = {%1}, height = {%2}", mTitle, mWidth, mHeight);
 		glfwMakeContextCurrent(mHandle);
@@ -20,7 +17,6 @@ namespace zm {
 	}
 	window::~window() {
 		glfwDestroyWindow(mHandle);
-  	glfwTerminate();
 	}
 	void window::update() {
 		glfwSwapBuffers(mHandle);
@@ -30,11 +26,15 @@ namespace zm {
 	}
 	void window::setTitle(const char *title) {
 		mTitle = title;
+		glfwSetWindowTitle(mHandle, title);
 	}
 	void window::setWidth(int width) {
 		mWidth = width;
+		glfwSetWindowSize(mHandle, mWidth, mHeight);
 	}
-	void window::setheight(int height) {
+	void window::setHeight(int height) {
 		mHeight = height;
+		glfwSetWindowSize(mHandle, mWidth, mHeight);
 	}
 }
+#endif

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "zm/zm.hpp"
-#include <GLFW/glfw3.h>
 class app : public zm::engine {
 public:
   app() {

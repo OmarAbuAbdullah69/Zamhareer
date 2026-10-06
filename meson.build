@@ -1,4 +1,4 @@
-project('app', 'cpp')
+project('app', 'cpp', default_options: ['cpp_std=c++17'])
 
 
 cpp_files = run_command('find', 'source/src', '-name', '*.cpp', check:true).stdout().split()

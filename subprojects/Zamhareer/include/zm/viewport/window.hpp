@@ -17,7 +17,7 @@ private:
   int getHeight() const { return mHeight; }
   void setTitle(const char *title);
   void setWidth(int width);
-  void setheight(int height);
+  void setHeight(int height);
 
 private:
   std::string mTitle;
