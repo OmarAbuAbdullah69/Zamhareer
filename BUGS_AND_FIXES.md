@@ -1,15 +1,27 @@
-# Bug log
+# Bugs and fixes
 
 Debug pass on commit `8b7c98b` ("at this point U should see a blank window").
 Built with meson 1.10.1, g++ 15.2, GLFW 3.4, on Ubuntu (Wayland session).
 
-Each entry says whether it was **reproduced** (actually ran and observed) or
-**read** (found by reading the code, not triggered).
+Each entry says whether it was **fixed**, **reproduced** (actually ran and
+observed, not fixed yet) or **read** (found by reading the code, not triggered).
+
+## Fixes applied
+
+| Bug | Change | Files |
+|-----|--------|-------|
+| #1 glitchy window | Clear the back buffer once at window creation and after every `glfwSwapBuffers`; link `gl` | `src/viewport/window.cpp`, `meson.build` |
+| #2 close button | `window::shouldClose()` → `viewport::shouldClose()` → `engine::render()` sets `mRuning = false` | `window.hpp`, `viewport.hpp`, `viewport.cpp`, `src/zm.cpp` |
+
+Verified: the frame shown went from 265 junk colours to 1. The loop stops one
+frame after a close request, and clicking X closes the app.
+
+## Bugs
 
 | # | Severity | Bug | Status |
 |---|----------|-----|--------|
-| 1 | High | Window shows garbage / looks glitchy | reproduced |
-| 2 | High | Closing the window doesn't stop the app | reproduced |
+| 1 | High | Window shows garbage / looks glitchy | **fixed** |
+| 2 | High | Closing the window doesn't stop the app | **fixed** |
 | 3 | High | Release build doesn't configure (`elif` with no condition) | reproduced |
 | 4 | Medium | `-o3` instead of `-O3` in release flags | read |
 | 5 | Medium | Deleting an engine that never ran `init()` segfaults | reproduced |
@@ -34,14 +46,12 @@ That is why the window flickers with junk instead of being blank.
 **Evidence:** reading the never-cleared back buffer of a 200x200 window gave
 **265 distinct colours**. After one `glClear` it was **1**.
 
-**Fix:** clear every frame before swapping, e.g. in `window::update()`:
-```cpp
-glClearColor(0.f, 0.f, 0.f, 1.f);
-glClear(GL_COLOR_BUFFER_BIT);
-glfwSwapBuffers(mHandle);
-glfwPollEvents();
-```
-(Needs `-lGL` / `dependency('gl')` in meson.) Also consider setting
+**Fixed:** `window` clears once when the context is made, and again right
+after every `glfwSwapBuffers` (the back buffer is undefined after a swap), so
+each frame starts clean. Clearing *after* the swap rather than before means
+anything `app::render()` draws before calling `engine::render()` isn't wiped.
+Retest: 1 distinct colour.
+Added `dependency('gl')` to meson for `glClear`. Still worth considering: setting
 `glfwSwapInterval(1)` after `glfwMakeContextCurrent` so the frame rate is
 capped explicitly. The app also asks for a 20x20 window (`app.hpp`), which
 some compositors resize without the engine noticing, because there is no
@@ -56,11 +66,9 @@ does nothing and the `while (a.isRuning())` loop in `ZM_MAIN` runs forever.
 **Evidence:** called `glfwSetWindowShouldClose(window, true)` and ran the loop:
 it was still running after 200 frames.
 
-**Fix:** after polling events, e.g. in `engine::render()` (or have
-`viewport`/`window` expose a `shouldClose()`):
-```cpp
-if (glfwWindowShouldClose(handle)) mRuning = false;
-```
+**Fixed:** `window::shouldClose()` → `viewport::shouldClose()` →
+`engine::render()` sets `mRuning = false` after polling events. Retest: the
+loop stops 1 frame after the close request.
 
 ### 3. Release build doesn't configure
 **Where:** `subprojects/Zamhareer/meson.build:17`
@@ -133,8 +141,7 @@ the guard, so it will break once the guard works.
 
 It writes to `std::cout` without flushing. On a terminal you see lines,
 but piped or redirected (IDE console, `./app > log.txt`) they stay in the
-buffer and are lost if the app is killed. Since the app can't be closed
-normally (#2), that's always the case.
+buffer and are lost if the app is killed.
 
 **Evidence:** `timeout 3 ./build/app` printed nothing. The same command under a
 pseudo-terminal printed the `INFO` line.

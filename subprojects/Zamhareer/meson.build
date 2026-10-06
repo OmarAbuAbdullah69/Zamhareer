@@ -36,6 +36,7 @@ endif
 
 if windowing
   deps += dependency('glfw3', required : true)
+  deps += dependency('gl', required : true)
   add_project_arguments('-DWINDOWING=1', language: 'cpp')
 else
   add_project_arguments('-DWINDOWING=0', language: 'cpp')

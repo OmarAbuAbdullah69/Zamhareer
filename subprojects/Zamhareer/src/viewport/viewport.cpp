@@ -15,4 +15,5 @@ viewport::~viewport() {
 #endif
 }
 void viewport::update() { mWindow->update(); }
+bool viewport::shouldClose() const { return mWindow->shouldClose(); }
 } // namespace zm

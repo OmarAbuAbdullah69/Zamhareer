@@ -15,6 +15,8 @@ namespace zm {
 		}
 		logger::inst().logInfo("a Glfw window was made with name = {%0}, width = {%1}, height = {%2}", mTitle, mWidth, mHeight);
 		glfwMakeContextCurrent(mHandle);
+		glClearColor(0.f, 0.f, 0.f, 1.f);
+		glClear(GL_COLOR_BUFFER_BIT);
 	}
 	window::~window() {
 		glfwDestroyWindow(mHandle);
@@ -23,6 +25,8 @@ namespace zm {
 	void window::update() {
 		glfwSwapBuffers(mHandle);
 		glfwPollEvents();
+		// back buffer is undefined after a swap; clear it so the next frame starts clean
+		glClear(GL_COLOR_BUFFER_BIT);
 	}
 	void window::setTitle(const char *title) {
 		mTitle = title;

@@ -12,6 +12,7 @@ private:
 #endif
   ~viewport();
   void update();
+  bool shouldClose() const;
 
 private:
 #ifdef WINDOWING

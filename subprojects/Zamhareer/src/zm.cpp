@@ -16,6 +16,8 @@ namespace zm {
 	}
 	void engine::render() {
 		mViewport->update();
+		if (mViewport->shouldClose())
+			mRuning = false;
 	}
 	bool engine::isRuning() {
 		return mRuning;

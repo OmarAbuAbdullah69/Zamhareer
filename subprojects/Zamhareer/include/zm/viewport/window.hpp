@@ -11,6 +11,7 @@ private:
   window(const char *title, int width, int height);
   ~window();
   void update();
+  bool shouldClose() const { return glfwWindowShouldClose(mHandle); }
   inline std::string getTitle() const { return mTitle; }
   int getWidth() const { return mWidth; }
   int getHeight() const { return mHeight; }
