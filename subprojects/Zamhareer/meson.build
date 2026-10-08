@@ -13,7 +13,7 @@ windowing = true
 
 message('====== building in ' + build_mode + ' mode ======')
 if build_mode == 'debug'
-  add_project_arguments('-DDEB_BUILD', '-g', '-ggdb', language: 'cpp')
+  add_project_arguments('-DDEB_BUILD', '-g', '-ggdb', '-Wall', language: 'cpp')
 else
   add_project_arguments('-DREL_BUILD', '-O3', language: 'cpp')
 endif

@@ -1,11 +1,9 @@
 #pragma once
 
-#include "zm/input.hpp"
-#include "zm/viewport/viewport.hpp"
-#ifdef DEB_BUILD
+#include "events.hpp"
 #include "logger.hpp"
-#endif
-#include <string>
+
+#include "zm/viewport/viewport.hpp"
 #define ZM_MAIN(APP)                                                           \
   int main(int argc, char *argv[]) {                                           \
     APP a;                                                                     \

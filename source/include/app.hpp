@@ -13,7 +13,7 @@ public:
 	void onEvent(zm::event e) override {
 		zm::engine::onEvent(e);
 		if (e.type == zm::eventType::KeyPressed){
-			LOGINFO("key code: {%0}, mod {%1}", static_cast<int>(e.key.code), static_cast<int>(e.key.mod));
+			LOGINFO("key code: {%0}, mod {%1}", static_cast<int>(e.key.code), static_cast<int>(e.key.modifiers));
 		}
 	}
 

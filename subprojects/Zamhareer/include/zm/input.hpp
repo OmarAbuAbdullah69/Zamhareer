@@ -60,7 +60,7 @@ public:
   }
 
 private:
-  friend class viewport;
+  friend class window;
   void listen(event);
   float mMouseX, mMouseY;
   float mMouseScrollX, mMouseScrollY;
