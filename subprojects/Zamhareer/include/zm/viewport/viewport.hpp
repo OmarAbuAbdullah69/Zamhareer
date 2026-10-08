@@ -8,11 +8,20 @@
 #endif
 namespace zm {
 class engine;
+
+
+struct viewportSettings {
+  std::string title;
+  int width = 640;
+  int height = 480;
+	bool resizable = true;
+};
+
 class viewport {
   friend class engine;
 
 private:
-  viewport(const char *title, int width, int height);
+  viewport(viewportSettings);
   ~viewport();
   void update();
   bool shouldClose() const;

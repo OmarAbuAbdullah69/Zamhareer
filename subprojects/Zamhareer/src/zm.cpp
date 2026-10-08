@@ -23,6 +23,8 @@ namespace zm {
 		if (mViewport->shouldClose())
 			mRuning = false;
 	}
+	void oneEvent(event e) {
+	}
 	bool engine::isRuning() {
 		return mRuning;
 	}

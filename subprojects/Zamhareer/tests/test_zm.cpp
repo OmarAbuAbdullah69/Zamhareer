@@ -51,7 +51,7 @@ int main() {
   alignas(testEngine) unsigned char buf[sizeof(testEngine)];
   std::memset(buf, 0xAB, sizeof buf);
   testEngine *e = new (buf) testEngine;
-  CHECK(&zm::engine::instance() == e);
+  CHECK(&zm::engine::inst() == e);
   e->~testEngine();
 
   if (failures == 0)

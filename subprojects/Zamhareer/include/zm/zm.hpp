@@ -1,6 +1,10 @@
 #pragma once
 
+#include "zm/input.hpp"
 #include "zm/viewport/viewport.hpp"
+#ifdef DEB_BUILD
+#include "logger.hpp"
+#endif
 #include <string>
 #define ZM_MAIN(APP)                                                           \
   int main(int argc, char *argv[]) {                                           \
@@ -16,9 +20,7 @@
 namespace zm {
 
 struct settings {
-  std::string title;
-  int viewportWidth = 640;
-  int viewportHeight = 480;
+  viewportSettings vs;
 };
 
 class engine {
@@ -31,11 +33,12 @@ public:
   virtual ~engine();
   engine(const engine &) = delete;
   engine &operator=(const engine &) = delete;
-  static engine &instance() { return *sInstance; }
+  static engine &inst() { return *sInstance; }
 
   virtual void init();
   virtual void update();
   virtual void render();
+  virtual void onEvent(event);
 
   bool isRuning();
 

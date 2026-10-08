@@ -13,15 +13,15 @@ private:
   void update();
   bool shouldClose() const { return glfwWindowShouldClose(mHandle); }
   inline std::string getTitle() const { return mTitle; }
-  int getWidth() const { return mWidth; }
-  int getHeight() const { return mHeight; }
+  void getSize(int &w, int &h) const {
+  glfwGetWindowSize(mHandle, &w, &h);
+  }
   void setTitle(const char *title);
-  void setWidth(int width);
-  void setHeight(int height);
+  void setSize(int width, int height);
+	void setWindowResizeable(bool r) {glfwSetWindowAttrib(mHandle, GLFW_RESIZABLE, r);}
 
 private:
   std::string mTitle;
-  int mWidth, mHeight;
   GLFWwindow *mHandle;
 };
 } // namespace zm
